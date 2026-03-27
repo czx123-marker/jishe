@@ -30,8 +30,8 @@ def convert_video_to_audio(video_file: str):
         rprint(f"[blue]🎬➡️🎵 Converting to high quality audio with FFmpeg ......[/blue]")
         subprocess.run([
             'ffmpeg', '-y', '-i', video_file, '-vn',
-            '-c:a', 'libmp3lame', '-b:a', '32k',
-            '-ar', '16000',
+            '-c:a', 'libmp3lame', '-q:a', '2',
+            '-ar', '44100',
             '-ac', '1', 
             '-metadata', 'encoding=UTF-8', _RAW_AUDIO_FILE
         ], check=True, stderr=subprocess.PIPE)

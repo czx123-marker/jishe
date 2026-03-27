@@ -13,6 +13,7 @@ from . import _3_2_split_meaning
 from . import _4_1_summarize
 from . import _4_2_translate
 from . import _5_split_sub
+from . import _6_gen_sub
 # from . import _7_sub_into_vid
 from .utils import load_key, rprint, models, ask_gpt, update_key
 import pandas as pd
@@ -62,13 +63,15 @@ def combine_results():
     segments = []
     for _, row in df_trans.iterrows():
         translation_text = str(row['Translation']) if pd.notna(row['Translation']) else ""
+        start_time = float(row['start']) if pd.notna(row['start']) else 0.0
+        end_time = float(row['end']) if pd.notna(row['end']) else 0.0
         # 使用jieba对翻译后的中文进行分词，为前端提供可点击的单词
         translated_words = jieba.lcut(translation_text)
         
         # 构建前端期望的单个 segment 对象
         segment_obj = {
-            "start": row['start'],
-            "end": row['end'],
+            "start": start_time,
+            "end": end_time,
             "text": translation_text,  # 用于整行显示的翻译文本
             "source": row['Source'],    # 源文本，为完整性保留
             "words": [{"word": w} for w in translated_words] # 用于生成可点击单词的数组
@@ -82,7 +85,7 @@ def combine_results():
     with open(final_json_path, 'w', encoding='utf-8') as f:
         json.dump(final_data, f, ensure_ascii=False, indent=2)
     
-    rprint(f"[bold green]🎉 最终结果已合并并保存到 {final_json_path}[/bold green]")
+    rprint(f"[bold green]Final result saved to {final_json_path}[/bold green]")
     return final_json_path
 
 def run_pipeline(video_path: str, source_lang: str = 'auto', target_lang: str = '英文'):
@@ -116,7 +119,8 @@ def run_pipeline(video_path: str, source_lang: str = 'auto', target_lang: str = 
 
     console.rule("[bold cyan]4. 切割长字幕并生成最终字幕文件[/bold cyan]")
     _5_split_sub.split_for_sub_main()
-    # _6_gen_sub.py 已经被废弃，其功能已合并到其他步骤
+    _6_gen_sub.align_timestamp_main()
+    # Keep the timestamp alignment step so final_result.json uses aligned timings.
 
     # if load_key("burn_in_subtitles"):
     #     console.rule("[bold cyan]5. 烧录字幕到视频[/bold cyan]")
