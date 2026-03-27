@@ -1,0 +1,188 @@
+{
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 6.480000019073486,
+      "text": "这是为了解决全球标准体系缺失的问题。",
+      "source": "This is to address the problem that there has been no global set of standards",
+      "words": [
+        {
+          "word": "这是"
+        },
+        {
+          "word": "为了"
+        },
+        {
+          "word": "解决"
+        },
+        {
+          "word": "全球"
+        },
+        {
+          "word": "标准"
+        },
+        {
+          "word": "体系"
+        },
+        {
+          "word": "缺失"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "问题"
+        },
+        {
+          "word": "。"
+        }
+      ]
+    },
+    {
+      "start": 0.0,
+      "end": 6.480000019073486,
+      "text": "而且也没有强制要求企业遵循。",
+      "source": "that's mandatory for companies to follow",
+      "words": [
+        {
+          "word": "而且"
+        },
+        {
+          "word": "也"
+        },
+        {
+          "word": "没有"
+        },
+        {
+          "word": "强制"
+        },
+        {
+          "word": "要求"
+        },
+        {
+          "word": "企业"
+        },
+        {
+          "word": "遵循"
+        },
+        {
+          "word": "。"
+        }
+      ]
+    },
+    {
+      "start": 6.760000228881836,
+      "end": 12.5600004196167,
+      "text": "这就造成了信息披露难以比较。",
+      "source": "Which has meant there's been issues over comparability",
+      "words": [
+        {
+          "word": "这"
+        },
+        {
+          "word": "就"
+        },
+        {
+          "word": "造成"
+        },
+        {
+          "word": "了"
+        },
+        {
+          "word": "信息"
+        },
+        {
+          "word": "披露"
+        },
+        {
+          "word": "难以"
+        },
+        {
+          "word": "比较"
+        },
+        {
+          "word": "。"
+        }
+      ]
+    },
+    {
+      "start": 0.0,
+      "end": 0.0,
+      "text": "而且通常只有大公司主动披露信息。为此，",
+      "source": "and really often only large companies disclosing anything So as an attempt to make a real global set of standards",
+      "words": [
+        {
+          "word": "而且"
+        },
+        {
+          "word": "通常"
+        },
+        {
+          "word": "只有"
+        },
+        {
+          "word": "大"
+        },
+        {
+          "word": "公司"
+        },
+        {
+          "word": "主动"
+        },
+        {
+          "word": "披露"
+        },
+        {
+          "word": "信息"
+        },
+        {
+          "word": "。"
+        },
+        {
+          "word": "为此"
+        },
+        {
+          "word": "，"
+        }
+      ]
+    },
+    {
+      "start": 16.96400022506714,
+      "end": 18.68000030517578,
+      "text": "他们出台了S1和S2两项新标准。",
+      "source": "they've issued s1 and s2",
+      "words": [
+        {
+          "word": "他们"
+        },
+        {
+          "word": "出台"
+        },
+        {
+          "word": "了"
+        },
+        {
+          "word": "S1"
+        },
+        {
+          "word": "和"
+        },
+        {
+          "word": "S2"
+        },
+        {
+          "word": "两项"
+        },
+        {
+          "word": "新"
+        },
+        {
+          "word": "标准"
+        },
+        {
+          "word": "。"
+        }
+      ]
+    }
+  ]
+}

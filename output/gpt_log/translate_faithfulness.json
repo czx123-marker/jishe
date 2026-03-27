@@ -1,0 +1,39 @@
+[
+    {
+        "model": "gpt-4.1-2025-04-14",
+        "prompt": "## Role\nYou are a professional Netflix subtitle translator, fluent in both zh and en, as well as their respective cultures. \nYour expertise lies in accurately understanding the semantics and structure of the original zh text and faithfully translating it into en while preserving the original meaning.\n\n## Task\nWe have a segment of original zh subtitles that need to be directly translated into en. These subtitles come from a specific context and may contain specific themes and terminology.\n\n1. Translate the original zh subtitles into en line by line\n2. Ensure the translation is faithful to the original, accurately conveying the original meaning\n3. Consider the context and professional terminology\n\n### Context Information\n<previous_content>\nNone\n</previous_content>\n\n<subsequent_content>\nNone\n</subsequent_content>\n\n### Content Summary\n本视频介绍了北京市作为中国首都及其深厚的历史文化底蕴和现代都市风貌。重点突出了北京如何实现古典与现代的完美融合，是全球独特的双奥之城。\n\n### Points to Note\n1. \"国际大都会\": \"international metropolis\", meaning: 指在全球具有重要影响力，人口集中、经济发达的大城市\n2. \"历史底蕴\": \"historical heritage\", meaning: 指城市悠久历史所积淀的深厚文化和人文内涵\n3. \"王朝\": \"dynasty\", meaning: 中国历史上的封建统治时期单位，如元、明、清等\n4. \"高楼大厦\": \"skyscrapers\", meaning: 指北京现代城市景观中的高层建筑群\n5. \"交通网\": \"transportation network\", meaning: 城市内部及周边发达的交通系统，包括地铁、公路等\n6. \"古典与现代\": \"classical and modern\", meaning: 形容北京既有传统文化元素，也有现代化特征\n7. \"中国文化\": \"Chinese culture\", meaning: 指中华民族悠久历史中形成的文化传统与价值观\n8. \"北京西站\": \"Beijing West Railway Station\", meaning: 北京市重要的铁路交通枢纽之一\n\n<translation_principles>\n1. Faithful to the original: Accurately convey the content and meaning of the original text, without arbitrarily changing, adding, or omitting content.\n2. Accurate terminology: Use professional terms correctly and maintain consistency in terminology.\n3. Understand the context: Fully comprehend and reflect the background and contextual relationships of the text.\n</translation_principles>\n\n## INPUT\n<subtitles>\n北京是中华人民共和国首都, 文化中心,全世界第一座双奥之城\n同时也是一座充满历史底蕴的国际大都会 在将近八百年的时间里\n这里曾是数个王朝的都城 而今天的北京, 高楼大厦耸立\n交通网密密麻麻 有大约两千万的人在这里生活\n北京将古典与现代完美的融合了在一起\n当你漫步在北京街头 你将会领略到中国文化的博大精深\n欣赏现代化的风貌 北京欢迎您的到来 北京西站到了\n</subtitles>\n\n## Output in only JSON format and no other text\n```json\n{\n  \"1\": {\n    \"origin\": \"北京是中华人民共和国首都, 文化中心,全世界第一座双奥之城\",\n    \"direct\": \"direct en translation 1.\"\n  },\n  \"2\": {\n    \"origin\": \"同时也是一座充满历史底蕴的国际大都会 在将近八百年的时间里\",\n    \"direct\": \"direct en translation 2.\"\n  },\n  \"3\": {\n    \"origin\": \"这里曾是数个王朝的都城 而今天的北京, 高楼大厦耸立\",\n    \"direct\": \"direct en translation 3.\"\n  },\n  \"4\": {\n    \"origin\": \"交通网密密麻麻 有大约两千万的人在这里生活\",\n    \"direct\": \"direct en translation 4.\"\n  },\n  \"5\": {\n    \"origin\": \"北京将古典与现代完美的融合了在一起\",\n    \"direct\": \"direct en translation 5.\"\n  },\n  \"6\": {\n    \"origin\": \"当你漫步在北京街头 你将会领略到中国文化的博大精深\",\n    \"direct\": \"direct en translation 6.\"\n  },\n  \"7\": {\n    \"origin\": \"欣赏现代化的风貌 北京欢迎您的到来 北京西站到了\",\n    \"direct\": \"direct en translation 7.\"\n  }\n}\n```\n\nNote: Start you answer with ```json and end with ```, do not add any other text.",
+        "resp_content": "```json\n{\n  \"1\": {\n    \"origin\": \"北京是中华人民共和国首都, 文化中心,全世界第一座双奥之城\",\n    \"direct\": \"Beijing is the capital of the People's Republic of China, a cultural center, and the world's first city to host both the Summer and Winter Olympics.\"\n  },\n  \"2\": {\n    \"origin\": \"同时也是一座充满历史底蕴的国际大都会 在将近八百年的时间里\",\n    \"direct\": \"It is also an international metropolis rich in historical heritage, with nearly eight hundred years of history.\"\n  },\n  \"3\": {\n    \"origin\": \"这里曾是数个王朝的都城 而今天的北京, 高楼大厦耸立\",\n    \"direct\": \"It served as the capital for several dynasties, and today, Beijing is filled with towering skyscrapers.\"\n  },\n  \"4\": {\n    \"origin\": \"交通网密密麻麻 有大约两千万的人在这里生活\",\n    \"direct\": \"Its dense transportation network connects a population of about twenty million people.\"\n  },\n  \"5\": {\n    \"origin\": \"北京将古典与现代完美的融合了在一起\",\n    \"direct\": \"Beijing seamlessly blends classical and modern elements.\"\n  },\n  \"6\": {\n    \"origin\": \"当你漫步在北京街头 你将会领略到中国文化的博大精深\",\n    \"direct\": \"As you stroll through the streets of Beijing, you will experience the profound richness of Chinese culture.\"\n  },\n  \"7\": {\n    \"origin\": \"欣赏现代化的风貌 北京欢迎您的到来 北京西站到了\",\n    \"direct\": \"Admire the city's modern landscape. Beijing welcomes your arrival. We have arrived at Beijing West Railway Station.\"\n  }\n}\n```",
+        "resp_type": "json",
+        "resp": {
+            "1": {
+                "origin": "北京是中华人民共和国首都, 文化中心,全世界第一座双奥之城",
+                "direct": "Beijing is the capital of the People's Republic of China, a cultural center, and the world's first city to host both the Summer and Winter Olympics."
+            },
+            "2": {
+                "origin": "同时也是一座充满历史底蕴的国际大都会 在将近八百年的时间里",
+                "direct": "It is also an international metropolis rich in historical heritage, with nearly eight hundred years of history."
+            },
+            "3": {
+                "origin": "这里曾是数个王朝的都城 而今天的北京, 高楼大厦耸立",
+                "direct": "It served as the capital for several dynasties, and today, Beijing is filled with towering skyscrapers."
+            },
+            "4": {
+                "origin": "交通网密密麻麻 有大约两千万的人在这里生活",
+                "direct": "Its dense transportation network connects a population of about twenty million people."
+            },
+            "5": {
+                "origin": "北京将古典与现代完美的融合了在一起",
+                "direct": "Beijing seamlessly blends classical and modern elements."
+            },
+            "6": {
+                "origin": "当你漫步在北京街头 你将会领略到中国文化的博大精深",
+                "direct": "As you stroll through the streets of Beijing, you will experience the profound richness of Chinese culture."
+            },
+            "7": {
+                "origin": "欣赏现代化的风貌 北京欢迎您的到来 北京西站到了",
+                "direct": "Admire the city's modern landscape. Beijing welcomes your arrival. We have arrived at Beijing West Railway Station."
+            }
+        },
+        "message": null
+    }
+]

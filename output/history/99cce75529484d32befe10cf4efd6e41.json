@@ -1,0 +1,176 @@
+{
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 6.480000019073486,
+      "text": "这是为了解决全球没有强制性统一标准的问题",
+      "source": "This is to address the problem that there has been no global set of standards that's mandatory",
+      "words": [
+        {
+          "word": "这是"
+        },
+        {
+          "word": "为了"
+        },
+        {
+          "word": "解决"
+        },
+        {
+          "word": "全球"
+        },
+        {
+          "word": "没有"
+        },
+        {
+          "word": "强制性"
+        },
+        {
+          "word": "统一标准"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "问题"
+        }
+      ]
+    },
+    {
+      "start": 0.0,
+      "end": 6.480000019073486,
+      "text": "供各家公司遵循",
+      "source": "for companies to follow",
+      "words": [
+        {
+          "word": "供"
+        },
+        {
+          "word": "各家"
+        },
+        {
+          "word": "公司"
+        },
+        {
+          "word": "遵循"
+        }
+      ]
+    },
+    {
+      "start": 6.760000228881836,
+      "end": 12.5600004196167,
+      "text": "结果导致信息披露难以比较",
+      "source": "Which has meant there's been issues over comparability",
+      "words": [
+        {
+          "word": "结果"
+        },
+        {
+          "word": "导致"
+        },
+        {
+          "word": "信息"
+        },
+        {
+          "word": "披露"
+        },
+        {
+          "word": "难以"
+        },
+        {
+          "word": "比较"
+        }
+      ]
+    },
+    {
+      "start": 0.0,
+      "end": 0.0,
+      "text": "而且往往只有大型企业愿意披露相关信息，为了制定真正的全球统一标准",
+      "source": "and really often only large companies disclosing anything So as an attempt to make a real global set of standards",
+      "words": [
+        {
+          "word": "而且"
+        },
+        {
+          "word": "往往"
+        },
+        {
+          "word": "只有"
+        },
+        {
+          "word": "大型"
+        },
+        {
+          "word": "企业"
+        },
+        {
+          "word": "愿意"
+        },
+        {
+          "word": "披露"
+        },
+        {
+          "word": "相关"
+        },
+        {
+          "word": "信息"
+        },
+        {
+          "word": "，"
+        },
+        {
+          "word": "为了"
+        },
+        {
+          "word": "制定"
+        },
+        {
+          "word": "真正"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "全球"
+        },
+        {
+          "word": "统一标准"
+        }
+      ]
+    },
+    {
+      "start": 12.96000003814697,
+      "end": 18.68000030517578,
+      "text": "他们推出了s1和s2两个新准则",
+      "source": "they've issued s1 and s2",
+      "words": [
+        {
+          "word": "他们"
+        },
+        {
+          "word": "推出"
+        },
+        {
+          "word": "了"
+        },
+        {
+          "word": "s1"
+        },
+        {
+          "word": "和"
+        },
+        {
+          "word": "s2"
+        },
+        {
+          "word": "两个"
+        },
+        {
+          "word": "新"
+        },
+        {
+          "word": "准则"
+        }
+      ]
+    }
+  ]
+}

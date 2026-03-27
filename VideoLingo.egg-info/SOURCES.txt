@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+VideoLingo.egg-info/PKG-INFO
+VideoLingo.egg-info/SOURCES.txt
+VideoLingo.egg-info/dependency_links.txt
+VideoLingo.egg-info/requires.txt
+VideoLingo.egg-info/top_level.txt

@@ -1,0 +1,16 @@
+[
+    {
+        "model": "gpt-4.1-2025-04-14",
+        "prompt": "\n        你是一位熟悉英语教学的中文老师，正在帮助母语为中文的学习者理解一个英文单词。\n        请严格按照以下 JSON 格式返回内容，不要添加任何额外文本：\n\n        单词: \"skyscrapers\"\n\n        JSON 格式:\n        {\n          \"ipa\": \"该英文单词的国际音标 (IPA)\",\n          \"meaning_cn\": \"使用简洁中文写出的释义\",\n          \"example_sentence_en\": \"一个包含该英文单词的英文例句\",\n          \"example_sentence_cn\": \"上述英文例句的中文翻译\",\n          \"usage_note\": \"关于该词常见搭配或语法提示的简短中文说明\"\n        }\n        ",
+        "resp_content": "{\n  \"ipa\": \"/ˈskaɪˌskreɪpərz/\",\n  \"meaning_cn\": \"摩天大楼，高层建筑\",\n  \"example_sentence_en\": \"The city is famous for its modern skyscrapers.\",\n  \"example_sentence_cn\": \"这座城市以其现代摩天大楼而闻名。\",\n  \"usage_note\": \"通常用作名词复数，指多栋高耸入云的建筑；常与city, downtown等词搭配使用。\"\n}",
+        "resp_type": "json",
+        "resp": {
+            "ipa": "/ˈskaɪˌskreɪpərz/",
+            "meaning_cn": "摩天大楼，高层建筑",
+            "example_sentence_en": "The city is famous for its modern skyscrapers.",
+            "example_sentence_cn": "这座城市以其现代摩天大楼而闻名。",
+            "usage_note": "通常用作名词复数，指多栋高耸入云的建筑；常与city, downtown等词搭配使用。"
+        },
+        "message": null
+    }
+]

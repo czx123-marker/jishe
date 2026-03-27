@@ -1,0 +1,36 @@
+Metadata-Version: 2.4
+Name: VideoLingo
+Version: 3.0.0
+License-File: LICENSE
+Requires-Dist: librosa==0.10.2.post1
+Requires-Dist: pytorch-lightning==2.3.3
+Requires-Dist: lightning==2.3.3
+Requires-Dist: transformers==4.39.3
+Requires-Dist: moviepy==1.0.3
+Requires-Dist: numpy==1.26.4
+Requires-Dist: openai==1.55.3
+Requires-Dist: opencv-python==4.10.0.84
+Requires-Dist: openpyxl==3.1.5
+Requires-Dist: pandas==2.2.3
+Requires-Dist: pydub==0.25.1
+Requires-Dist: PyYAML==6.0.2
+Requires-Dist: replicate==0.33.0
+Requires-Dist: requests==2.32.3
+Requires-Dist: resampy==0.4.3
+Requires-Dist: spacy==3.7.4
+Requires-Dist: streamlit==1.38.0
+Requires-Dist: yt-dlp
+Requires-Dist: json-repair
+Requires-Dist: ruamel.yaml
+Requires-Dist: InquirerPy
+Requires-Dist: autocorrect-py
+Requires-Dist: ctranslate2==4.4.0
+Requires-Dist: edge-tts
+Requires-Dist: demucs@ git+https://github.com/adefossez/demucs
+Requires-Dist: whisperx@ git+https://github.com/m-bain/whisperx.git@7307306a9d8dd0d261e588cc933322454f853853
+Requires-Dist: syllables
+Requires-Dist: pypinyin
+Requires-Dist: g2p-en
+Requires-Dist: xmltodict
+Dynamic: license-file
+Dynamic: requires-dist

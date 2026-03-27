@@ -1,0 +1,238 @@
+:root {
+    --primary: #9E2A2B;    /* 深红色（主色） */
+    --secondary: #495867;  /* 深灰色（辅助色） */
+    --accent: #E9B872;     /* 浅金色（强调色） */
+    --paper: #F4EBD0;      /* 米色（背景色） */
+    --white: #ffffff;      /* 白色（卡片背景） */
+    --light-gray: #f9f5ee; /* 浅灰色（辅助背景） */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;  /* 统一字体 */
+    line-height: 1.6;                /* 行高优化 */
+    color: var(--secondary);         /* 默认文字色 */
+    background-color: var(--paper);  /* 米色背景 */
+    scroll-behavior: smooth;
+    padding-top: 120px;              /* 为固定导航栏留空间 */
+}
+
+/* 导航栏样式 */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  /* 轻微阴影 */
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.logo-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--primary);  /* 深红色图标背景 */
+    border-radius: 50%;          /* 圆形图标 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);         /* 白色文字 */
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.logo-text {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--primary);  /* 深红色文字 */
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--secondary);  /* 深灰色链接 */
+    font-weight: 500;
+    transition: color 0.3s;   /* hover过渡效果 */
+}
+
+.nav-links a:hover {
+    color: var(--primary);  /* hover时变深红色 */
+}
+
+/* 核心问答数据区域样式 */
+.qa-container {
+    max-width: 1000px;
+    margin: 0 auto 50px;
+    padding: 0 20px;
+}
+
+.qa-container h2 {
+    color: var(--primary);
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--secondary);
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+/* 问答类别样式 */
+.qa-category {
+    margin-bottom: 30px;
+}
+
+.qa-category h3 {
+    color: var(--secondary);
+    font-size: 22px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent);
+}
+
+/* 问答项样式 */
+.qa-item {
+    margin-bottom: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.qa-question {
+    width: 100%;
+    background-color: var(--white);
+    border: none;
+    padding: 15px 20px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.qa-question::after {
+    content: '+';
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--accent);
+    transition: transform 0.3s ease;
+}
+
+.qa-question:hover {
+    background-color: var(--light-gray);
+}
+
+.qa-question.active {
+    background-color: var(--light-gray);
+    color: var(--primary);
+}
+
+.qa-question.active::after {
+    transform: rotate(45deg);
+}
+
+.qa-answer {
+    background-color: var(--white);
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.qa-answer.show {
+    max-height: 500px;
+    padding: 20px;
+}
+
+.qa-answer p {
+    margin-bottom: 10px;
+}
+
+.qa-answer p:last-child {
+    margin-bottom: 0;
+}
+
+.qa-answer .chinese {
+    font-weight: 500;
+    color: var(--primary);
+}
+
+.qa-answer .english {
+    font-style: italic;
+    color: var(--secondary);
+}
+
+/* 显示更多按钮样式 */
+.show-more-btn {
+    display: block;
+    width: 200px;
+    margin: 30px auto 0;
+    padding: 12px 20px;
+    background-color: var(--accent);
+    color: var(--secondary);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.show-more-btn:hover {
+    background-color: #d8a45e;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .qa-container {
+        padding: 0 15px;
+    }
+    
+    .qa-container h2 {
+        font-size: 24px;
+    }
+    
+    .qa-category h3 {
+        font-size: 20px;
+    }
+    
+    .qa-question {
+        font-size: 16px;
+    }
+}

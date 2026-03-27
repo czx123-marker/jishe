@@ -1,0 +1,182 @@
+[
+    {
+        "model": "gpt-4.1-2025-04-14",
+        "prompt": "## Role\nYou are a Netflix subtitle alignment expert fluent in both zh and en.\n\n## Task\nWe have zh and en original subtitles for a Netflix program, as well as a pre-processed split version of zh subtitles.\nYour task is to create the best splitting scheme for the en subtitles based on this information.\n\n1. Analyze the word order and structural correspondence between zh and en subtitles\n2. Split the en subtitles according to the pre-processed zh split version\n3. Never leave empty lines. If it's difficult to split based on meaning, you may appropriately rewrite the sentences that need to be aligned\n4. Do not add comments or explanations in the translation, as the subtitles are for the audience to read\n\n## INPUT\n<subtitles>\nzh Original: \"同时也是一座充满历史底蕴的国际大都会 在将近八百年的时间里\"\nen Original: \"It’s an international metropolis shaped by almost 800 years of history.\"\nPre-processed zh Subtitles ([br] indicates split points): 同时也是一座充满历史底蕴的国际大都会 [br]  在将近八百年的时间里\n</subtitles>\n\n## Output in only JSON format and no other text\n```json\n{\n    \"analysis\": \"Brief analysis of word order, structure, and semantic correspondence between two subtitles\",\n    \"align\": [\n        \n        {\n            \"src_part_1\": \"同时也是一座充满历史底蕴的国际大都会\",\n            \"target_part_1\": \"Corresponding aligned en subtitle part\"\n        },\n        {\n            \"src_part_2\": \" 在将近八百年的时间里\",\n            \"target_part_2\": \"Corresponding aligned en subtitle part\"\n        }\n    ]\n}\n```\n\nNote: Start you answer with ```json and end with ```, do not add any other text.",
+        "resp_content": "```json\n{\n    \"analysis\": \"The Chinese sentence is split into two parts: the first describes Shanghai as an international metropolis rich in history, and the second specifies the timeframe of 'almost 800 years.' The English original merges both concepts, starting with the subject (metropolis) and integrating the timeframe. To match the zh split, the English subtitle should also be split: the first part defining the city and the second highlighting the historical period.\",\n    \"align\": [\n        {\n            \"src_part_1\": \"同时也是一座充满历史底蕴的国际大都会\",\n            \"target_part_1\": \"It’s an international metropolis rich in history.\"\n        },\n        {\n            \"src_part_2\": \" 在将近八百年的时间里\",\n            \"target_part_2\": \"Shaped by almost 800 years of history.\"\n        }\n    ]\n}\n```",
+        "resp_type": "json",
+        "resp": {
+            "analysis": "The Chinese sentence is split into two parts: the first describes Shanghai as an international metropolis rich in history, and the second specifies the timeframe of 'almost 800 years.' The English original merges both concepts, starting with the subject (metropolis) and integrating the timeframe. To match the zh split, the English subtitle should also be split: the first part defining the city and the second highlighting the historical period.",
+            "align": [
+                {
+                    "src_part_1": "同时也是一座充满历史底蕴的国际大都会",
+                    "target_part_1": "It’s an international metropolis rich in history."
+                },
+                {
+                    "src_part_2": " 在将近八百年的时间里",
+                    "target_part_2": "Shaped by almost 800 years of history."
+                }
+            ]
+        },
+        "message": null
+    },
+    {
+        "model": "gpt-4.1-2025-04-14",
+        "prompt": "## Role\nYou are a Netflix subtitle alignment expert fluent in both zh and en.\n\n## Task\nWe have zh and en original subtitles for a Netflix program, as well as a pre-processed split version of zh subtitles.\nYour task is to create the best splitting scheme for the en subtitles based on this information.\n\n1. Analyze the word order and structural correspondence between zh and en subtitles\n2. Split the en subtitles according to the pre-processed zh split version\n3. Never leave empty lines. If it's difficult to split based on meaning, you may appropriately rewrite the sentences that need to be aligned\n4. Do not add comments or explanations in the translation, as the subtitles are for the audience to read\n\n## INPUT\n<subtitles>\nzh Original: \"这里曾是数个王朝的都城 而今天的北京, 高楼大厦耸立\"\nen Original: \"Once the seat of several dynasties, today Beijing’s skyline is dotted with skyscrapers.\"\nPre-processed zh Subtitles ([br] indicates split points): 这里曾是数个王朝的都城 [br]  而今天的北京, 高楼大厦耸立\n</subtitles>\n\n## Output in only JSON format and no other text\n```json\n{\n    \"analysis\": \"Brief analysis of word order, structure, and semantic correspondence between two subtitles\",\n    \"align\": [\n        \n        {\n            \"src_part_1\": \"这里曾是数个王朝的都城\",\n            \"target_part_1\": \"Corresponding aligned en subtitle part\"\n        },\n        {\n            \"src_part_2\": \" 而今天的北京, 高楼大厦耸立\",\n            \"target_part_2\": \"Corresponding aligned en subtitle part\"\n        }\n    ]\n}\n```\n\nNote: Start you answer with ```json and end with ```, do not add any other text.",
+        "resp_content": "```json\n{\n    \"analysis\": \"The original English subtitle combines both the historical and present descriptions of Beijing into a single complex sentence. The Chinese original also presents two clauses: the first referencing Beijing's history as a capital, the second describing its modern skyline. The pre-processed zh split naturally separates these two ideas, and the English can be sensibly split and slightly adapted for better alignment.\",\n    \"align\": [\n        {\n            \"src_part_1\": \"这里曾是数个王朝的都城\",\n            \"target_part_1\": \"Once the seat of several dynasties,\"\n        },\n        {\n            \"src_part_2\": \" 而今天的北京, 高楼大厦耸立\",\n            \"target_part_2\": \"today Beijing’s skyline is dotted with skyscrapers.\"\n        }\n    ]\n}\n```",
+        "resp_type": "json",
+        "resp": {
+            "analysis": "The original English subtitle combines both the historical and present descriptions of Beijing into a single complex sentence. The Chinese original also presents two clauses: the first referencing Beijing's history as a capital, the second describing its modern skyline. The pre-processed zh split naturally separates these two ideas, and the English can be sensibly split and slightly adapted for better alignment.",
+            "align": [
+                {
+                    "src_part_1": "这里曾是数个王朝的都城",
+                    "target_part_1": "Once the seat of several dynasties,"
+                },
+                {
+                    "src_part_2": " 而今天的北京, 高楼大厦耸立",
+                    "target_part_2": "today Beijing’s skyline is dotted with skyscrapers."
+                }
+            ]
+        },
+        "message": null
+    },
+    {
+        "model": "gpt-4.1-2025-04-14",
+        "prompt": "## Role\nYou are a Netflix subtitle alignment expert fluent in both zh and en.\n\n## Task\nWe have zh and en original subtitles for a Netflix program, as well as a pre-processed split version of zh subtitles.\nYour task is to create the best splitting scheme for the en subtitles based on this information.\n\n1. Analyze the word order and structural correspondence between zh and en subtitles\n2. Split the en subtitles according to the pre-processed zh split version\n3. Never leave empty lines. If it's difficult to split based on meaning, you may appropriately rewrite the sentences that need to be aligned\n4. Do not add comments or explanations in the translation, as the subtitles are for the audience to read\n\n## INPUT\n<subtitles>\nzh Original: \"交通网密密麻麻 有大约两千万的人在这里生活\"\nen Original: \"With an extensive transport network, Beijing is home to around 20 million people.\"\nPre-processed zh Subtitles ([br] indicates split points): 交通网密密麻麻 [br]  有大约两千万的人在这里生活\n</subtitles>\n\n## Output in only JSON format and no other text\n```json\n{\n    \"analysis\": \"Brief analysis of word order, structure, and semantic correspondence between two subtitles\",\n    \"align\": [\n        \n        {\n            \"src_part_1\": \"交通网密密麻麻\",\n            \"target_part_1\": \"Corresponding aligned en subtitle part\"\n        },\n        {\n            \"src_part_2\": \" 有大约两千万的人在这里生活\",\n            \"target_part_2\": \"Corresponding aligned en subtitle part\"\n        }\n    ]\n}\n```\n\nNote: Start you answer with ```json and end with ```, do not add any other text.",
+        "resp_content": "```json\n{\n    \"analysis\": \"The Chinese subtitle is split into two segments: one describing the dense transport network ('交通网密密麻麻'), and the other stating that about 20 million people live there ('有大约两千万的人在这里生活'). The English original combines both into a single sentence, first mentioning the transport network and then population. Word order and meaning correspond closely enough for direct alignment with minor rephrasing for split.\",\n    \"align\": [\n        {\n            \"src_part_1\": \"交通网密密麻麻\",\n            \"target_part_1\": \"With an extensive transport network,\"\n        },\n        {\n            \"src_part_2\": \" 有大约两千万的人在这里生活\",\n            \"target_part_2\": \"Beijing is home to around 20 million people.\"\n        }\n    ]\n}\n```",
+        "resp_type": "json",
+        "resp": {
+            "analysis": "The Chinese subtitle is split into two segments: one describing the dense transport network ('交通网密密麻麻'), and the other stating that about 20 million people live there ('有大约两千万的人在这里生活'). The English original combines both into a single sentence, first mentioning the transport network and then population. Word order and meaning correspond closely enough for direct alignment with minor rephrasing for split.",
+            "align": [
+                {
+                    "src_part_1": "交通网密密麻麻",
+                    "target_part_1": "With an extensive transport network,"
+                },
+                {
+                    "src_part_2": " 有大约两千万的人在这里生活",
+                    "target_part_2": "Beijing is home to around 20 million people."
+                }
+            ]
+        },
+        "message": null
+    },
+    {
+        "model": "gpt-4.1-2025-04-14",
+        "prompt": "## Role\nYou are a Netflix subtitle alignment expert fluent in both zh and en.\n\n## Task\nWe have zh and en original subtitles for a Netflix program, as well as a pre-processed split version of zh subtitles.\nYour task is to create the best splitting scheme for the en subtitles based on this information.\n\n1. Analyze the word order and structural correspondence between zh and en subtitles\n2. Split the en subtitles according to the pre-processed zh split version\n3. Never leave empty lines. If it's difficult to split based on meaning, you may appropriately rewrite the sentences that need to be aligned\n4. Do not add comments or explanations in the translation, as the subtitles are for the audience to read\n\n## INPUT\n<subtitles>\nzh Original: \"北京是中华人民共和国首都, 文化中心,全世界第一座双奥之城\"\nen Original: \"Beijing is China’s capital, a cultural hub, and the first city to host both the Summer and Winter Olympics.\"\nPre-processed zh Subtitles ([br] indicates split points): 北京是中华人民共和国首都, 文化中心 [br] ,全世界第一座双奥之城\n</subtitles>\n\n## Output in only JSON format and no other text\n```json\n{\n    \"analysis\": \"Brief analysis of word order, structure, and semantic correspondence between two subtitles\",\n    \"align\": [\n        \n        {\n            \"src_part_1\": \"北京是中华人民共和国首都, 文化中心\",\n            \"target_part_1\": \"Corresponding aligned en subtitle part\"\n        },\n        {\n            \"src_part_2\": \",全世界第一座双奥之城\",\n            \"target_part_2\": \"Corresponding aligned en subtitle part\"\n        }\n    ]\n}\n```\n\nNote: Start you answer with ```json and end with ```, do not add any other text.",
+        "resp_content": "```json\n{\n    \"analysis\": \"The Chinese subtitle groups two functions ('首都, 文化中心') together, followed by the unique achievement ('全世界第一座双奥之城'). The English original lists three elements: capital, cultural hub, and first dual Olympic host. To align with the Chinese split, the first part will cover 'capital, cultural hub', and the second will mention the Olympic hosting milestone. Both sentences use a similar order for the capital and hub, then highlight the achievement.\",\n    \"align\": [\n        {\n            \"src_part_1\": \"北京是中华人民共和国首都, 文化中心\",\n            \"target_part_1\": \"Beijing is China’s capital and a cultural hub\"\n        },\n        {\n            \"src_part_2\": \",全世界第一座双奥之城\",\n            \"target_part_2\": \"and the first city to host both the Summer and Winter Olympics.\"\n        }\n    ]\n}\n```",
+        "resp_type": "json",
+        "resp": {
+            "analysis": "The Chinese subtitle groups two functions ('首都, 文化中心') together, followed by the unique achievement ('全世界第一座双奥之城'). The English original lists three elements: capital, cultural hub, and first dual Olympic host. To align with the Chinese split, the first part will cover 'capital, cultural hub', and the second will mention the Olympic hosting milestone. Both sentences use a similar order for the capital and hub, then highlight the achievement.",
+            "align": [
+                {
+                    "src_part_1": "北京是中华人民共和国首都, 文化中心",
+                    "target_part_1": "Beijing is China’s capital and a cultural hub"
+                },
+                {
+                    "src_part_2": ",全世界第一座双奥之城",
+                    "target_part_2": "and the first city to host both the Summer and Winter Olympics."
+                }
+            ]
+        },
+        "message": null
+    },
+    {
+        "model": "gpt-4.1-2025-04-14",
+        "prompt": "## Role\nYou are a Netflix subtitle alignment expert fluent in both zh and en.\n\n## Task\nWe have zh and en original subtitles for a Netflix program, as well as a pre-processed split version of zh subtitles.\nYour task is to create the best splitting scheme for the en subtitles based on this information.\n\n1. Analyze the word order and structural correspondence between zh and en subtitles\n2. Split the en subtitles according to the pre-processed zh split version\n3. Never leave empty lines. If it's difficult to split based on meaning, you may appropriately rewrite the sentences that need to be aligned\n4. Do not add comments or explanations in the translation, as the subtitles are for the audience to read\n\n## INPUT\n<subtitles>\nzh Original: \"北京将古典与现代完美的融合了在一起\"\nen Original: \"The city is where old traditions and modern life merge perfe...\"\nPre-processed zh Subtitles ([br] indicates split points): 北京将古典与现代 [br] 完美的融合了在一起\n</subtitles>\n\n## Output in only JSON format and no other text\n```json\n{\n    \"analysis\": \"Brief analysis of word order, structure, and semantic correspondence between two subtitles\",\n    \"align\": [\n        \n        {\n            \"src_part_1\": \"北京将古典与现代\",\n            \"target_part_1\": \"Corresponding aligned en subtitle part\"\n        },\n        {\n            \"src_part_2\": \"完美的融合了在一起\",\n            \"target_part_2\": \"Corresponding aligned en subtitle part\"\n        }\n    ]\n}\n```\n\nNote: Start you answer with ```json and end with ```, do not add any other text.",
+        "resp_content": "```json\n{\n    \"analysis\": \"The Chinese subtitle presents the subject '北京' and the objects '古典与现代' first, followed by the action '完美的融合了在一起' (perfectly merges together). The English subtitle rephrases this to 'The city is where old traditions and modern life merge perfectly.' To align with the zh split, the EN needs to be divided after 'old traditions and modern life'.\",\n    \"align\": [\n        {\n            \"src_part_1\": \"北京将古典与现代\",\n            \"target_part_1\": \"The city is where old traditions and modern life\"\n        },\n        {\n            \"src_part_2\": \"完美的融合了在一起\",\n            \"target_part_2\": \"merge perfectly.\"\n        }\n    ]\n}\n```",
+        "resp_type": "json",
+        "resp": {
+            "analysis": "The Chinese subtitle presents the subject '北京' and the objects '古典与现代' first, followed by the action '完美的融合了在一起' (perfectly merges together). The English subtitle rephrases this to 'The city is where old traditions and modern life merge perfectly.' To align with the zh split, the EN needs to be divided after 'old traditions and modern life'.",
+            "align": [
+                {
+                    "src_part_1": "北京将古典与现代",
+                    "target_part_1": "The city is where old traditions and modern life"
+                },
+                {
+                    "src_part_2": "完美的融合了在一起",
+                    "target_part_2": "merge perfectly."
+                }
+            ]
+        },
+        "message": null
+    },
+    {
+        "model": "gpt-4.1-2025-04-14",
+        "prompt": "## Role\nYou are a Netflix subtitle alignment expert fluent in both zh and en.\n\n## Task\nWe have zh and en original subtitles for a Netflix program, as well as a pre-processed split version of zh subtitles.\nYour task is to create the best splitting scheme for the en subtitles based on this information.\n\n1. Analyze the word order and structural correspondence between zh and en subtitles\n2. Split the en subtitles according to the pre-processed zh split version\n3. Never leave empty lines. If it's difficult to split based on meaning, you may appropriately rewrite the sentences that need to be aligned\n4. Do not add comments or explanations in the translation, as the subtitles are for the audience to read\n\n## INPUT\n<subtitles>\nzh Original: \"欣赏现代化的风貌 北京欢迎您的到来 北京西站到了\"\nen Original: \"Enjoy Beijing’s modern scene. Welcome to the city. We’ve arrived at Beijing West Railway Station.\"\nPre-processed zh Subtitles ([br] indicates split points): 欣赏现代化的风貌 [br]  北京欢迎您的到来 北京西站到了\n</subtitles>\n\n## Output in only JSON format and no other text\n```json\n{\n    \"analysis\": \"Brief analysis of word order, structure, and semantic correspondence between two subtitles\",\n    \"align\": [\n        \n        {\n            \"src_part_1\": \"欣赏现代化的风貌\",\n            \"target_part_1\": \"Corresponding aligned en subtitle part\"\n        },\n        {\n            \"src_part_2\": \" 北京欢迎您的到来 北京西站到了\",\n            \"target_part_2\": \"Corresponding aligned en subtitle part\"\n        }\n    ]\n}\n```\n\nNote: Start you answer with ```json and end with ```, do not add any other text.",
+        "resp_content": "```json\n{\n    \"analysis\": \"The zh subtitle is composed of three phrases: appreciating the modernity of Beijing, welcoming the viewer to Beijing, and arrival at the station. The en original separates these into three sentences in a matching order. The zh pre-processed split separates after the first phrase, grouping the welcome and arrival together, so the en split should follow this by combining the 'Welcome' and 'We’ve arrived' lines.\",\n    \"align\": [\n        {\n            \"src_part_1\": \"欣赏现代化的风貌\",\n            \"target_part_1\": \"Enjoy Beijing’s modern scene.\"\n        },\n        {\n            \"src_part_2\": \" 北京欢迎您的到来 北京西站到了\",\n            \"target_part_2\": \"Welcome to the city. We’ve arrived at Beijing West Railway Station.\"\n        }\n    ]\n}\n```",
+        "resp_type": "json",
+        "resp": {
+            "analysis": "The zh subtitle is composed of three phrases: appreciating the modernity of Beijing, welcoming the viewer to Beijing, and arrival at the station. The en original separates these into three sentences in a matching order. The zh pre-processed split separates after the first phrase, grouping the welcome and arrival together, so the en split should follow this by combining the 'Welcome' and 'We’ve arrived' lines.",
+            "align": [
+                {
+                    "src_part_1": "欣赏现代化的风貌",
+                    "target_part_1": "Enjoy Beijing’s modern scene."
+                },
+                {
+                    "src_part_2": " 北京欢迎您的到来 北京西站到了",
+                    "target_part_2": "Welcome to the city. We’ve arrived at Beijing West Railway Station."
+                }
+            ]
+        },
+        "message": null
+    },
+    {
+        "model": "gpt-4.1-2025-04-14",
+        "prompt": "## Role\nYou are a Netflix subtitle alignment expert fluent in both zh and en.\n\n## Task\nWe have zh and en original subtitles for a Netflix program, as well as a pre-processed split version of zh subtitles.\nYour task is to create the best splitting scheme for the en subtitles based on this information.\n\n1. Analyze the word order and structural correspondence between zh and en subtitles\n2. Split the en subtitles according to the pre-processed zh split version\n3. Never leave empty lines. If it's difficult to split based on meaning, you may appropriately rewrite the sentences that need to be aligned\n4. Do not add comments or explanations in the translation, as the subtitles are for the audience to read\n\n## INPUT\n<subtitles>\nzh Original: \"当你漫步在北京街头 你将会领略到中国文化的博大精深\"\nen Original: \"Walk Beijing’s streets, and you’ll feel the depth and beauty of Chinese culture.\"\nPre-processed zh Subtitles ([br] indicates split points): 当你漫步在北京街头 [br]  你将会领略到中国文化的博大精深\n</subtitles>\n\n## Output in only JSON format and no other text\n```json\n{\n    \"analysis\": \"Brief analysis of word order, structure, and semantic correspondence between two subtitles\",\n    \"align\": [\n        \n        {\n            \"src_part_1\": \"当你漫步在北京街头\",\n            \"target_part_1\": \"Corresponding aligned en subtitle part\"\n        },\n        {\n            \"src_part_2\": \" 你将会领略到中国文化的博大精深\",\n            \"target_part_2\": \"Corresponding aligned en subtitle part\"\n        }\n    ]\n}\n```\n\nNote: Start you answer with ```json and end with ```, do not add any other text.",
+        "resp_content": "```json\n{\n    \"analysis\": \"The Chinese sentence consists of two main clauses separated by a slight pause, reflected in the pre-processed split. The English version merges these into one fluent sentence, starting with an imperative ('Walk Beijing’s streets') equivalent to the first clause in Chinese, followed by the result ('and you’ll feel the depth and beauty of Chinese culture') corresponding to the second clause. The word order differs since English uses an imperative structure, while Chinese uses a temporal clause leading into the main clause.\",\n    \"align\": [\n        {\n            \"src_part_1\": \"当你漫步在北京街头\",\n            \"target_part_1\": \"Walk Beijing’s streets\"\n        },\n        {\n            \"src_part_2\": \" 你将会领略到中国文化的博大精深\",\n            \"target_part_2\": \"and you’ll feel the depth and beauty of Chinese culture.\"\n        }\n    ]\n}\n```",
+        "resp_type": "json",
+        "resp": {
+            "analysis": "The Chinese sentence consists of two main clauses separated by a slight pause, reflected in the pre-processed split. The English version merges these into one fluent sentence, starting with an imperative ('Walk Beijing’s streets') equivalent to the first clause in Chinese, followed by the result ('and you’ll feel the depth and beauty of Chinese culture') corresponding to the second clause. The word order differs since English uses an imperative structure, while Chinese uses a temporal clause leading into the main clause.",
+            "align": [
+                {
+                    "src_part_1": "当你漫步在北京街头",
+                    "target_part_1": "Walk Beijing’s streets"
+                },
+                {
+                    "src_part_2": " 你将会领略到中国文化的博大精深",
+                    "target_part_2": "and you’ll feel the depth and beauty of Chinese culture."
+                }
+            ]
+        },
+        "message": null
+    },
+    {
+        "model": "gpt-4.1-2025-04-14",
+        "prompt": "## Role\nYou are a Netflix subtitle alignment expert fluent in both zh and en.\n\n## Task\nWe have zh and en original subtitles for a Netflix program, as well as a pre-processed split version of zh subtitles.\nYour task is to create the best splitting scheme for the en subtitles based on this information.\n\n1. Analyze the word order and structural correspondence between zh and en subtitles\n2. Split the en subtitles according to the pre-processed zh split version\n3. Never leave empty lines. If it's difficult to split based on meaning, you may appropriately rewrite the sentences that need to be aligned\n4. Do not add comments or explanations in the translation, as the subtitles are for the audience to read\n\n## INPUT\n<subtitles>\nzh Original: \",全世界第一座双奥之城\"\nen Original: \"and the first city to host both the Summer and Winter Olympics.\"\nPre-processed zh Subtitles ([br] indicates split points): ,全世界第一座 [br] 双奥之城\n</subtitles>\n\n## Output in only JSON format and no other text\n```json\n{\n    \"analysis\": \"Brief analysis of word order, structure, and semantic correspondence between two subtitles\",\n    \"align\": [\n        \n        {\n            \"src_part_1\": \",全世界第一座\",\n            \"target_part_1\": \"Corresponding aligned en subtitle part\"\n        },\n        {\n            \"src_part_2\": \"双奥之城\",\n            \"target_part_2\": \"Corresponding aligned en subtitle part\"\n        }\n    ]\n}\n```\n\nNote: Start you answer with ```json and end with ```, do not add any other text.",
+        "resp_content": "```json\n{\n    \"analysis\": \"The Chinese subtitle splits into ',全世界第一座' (the world's first) and '双奥之城' (city hosting both Olympics). The English sentence follows a different structure, mentioning 'the first city' and specifying it hosts both the Summer and Winter Olympics. To align properly, the English needs to be split: the first part introducing 'the first city', the second specifying its Olympic distinction.\",\n    \"align\": [\n        {\n            \"src_part_1\": \",全世界第一座\",\n            \"target_part_1\": \"the first city in the world\"\n        },\n        {\n            \"src_part_2\": \"双奥之城\",\n            \"target_part_2\": \"to host both the Summer and Winter Olympics.\"\n        }\n    ]\n}\n```",
+        "resp_type": "json",
+        "resp": {
+            "analysis": "The Chinese subtitle splits into ',全世界第一座' (the world's first) and '双奥之城' (city hosting both Olympics). The English sentence follows a different structure, mentioning 'the first city' and specifying it hosts both the Summer and Winter Olympics. To align properly, the English needs to be split: the first part introducing 'the first city', the second specifying its Olympic distinction.",
+            "align": [
+                {
+                    "src_part_1": ",全世界第一座",
+                    "target_part_1": "the first city in the world"
+                },
+                {
+                    "src_part_2": "双奥之城",
+                    "target_part_2": "to host both the Summer and Winter Olympics."
+                }
+            ]
+        },
+        "message": null
+    },
+    {
+        "model": "gpt-4.1-2025-04-14",
+        "prompt": "## Role\nYou are a Netflix subtitle alignment expert fluent in both zh and en.\n\n## Task\nWe have zh and en original subtitles for a Netflix program, as well as a pre-processed split version of zh subtitles.\nYour task is to create the best splitting scheme for the en subtitles based on this information.\n\n1. Analyze the word order and structural correspondence between zh and en subtitles\n2. Split the en subtitles according to the pre-processed zh split version\n3. Never leave empty lines. If it's difficult to split based on meaning, you may appropriately rewrite the sentences that need to be aligned\n4. Do not add comments or explanations in the translation, as the subtitles are for the audience to read\n\n## INPUT\n<subtitles>\nzh Original: \" 北京欢迎您的到来 北京西站到了\"\nen Original: \"Welcome to the city. We’ve arrived at Beijing West Railway Station.\"\nPre-processed zh Subtitles ([br] indicates split points): 北京欢迎您的到来 [br]  北京西站到了\n</subtitles>\n\n## Output in only JSON format and no other text\n```json\n{\n    \"analysis\": \"Brief analysis of word order, structure, and semantic correspondence between two subtitles\",\n    \"align\": [\n        \n        {\n            \"src_part_1\": \"北京欢迎您的到来\",\n            \"target_part_1\": \"Corresponding aligned en subtitle part\"\n        },\n        {\n            \"src_part_2\": \" 北京西站到了\",\n            \"target_part_2\": \"Corresponding aligned en subtitle part\"\n        }\n    ]\n}\n```\n\nNote: Start you answer with ```json and end with ```, do not add any other text.",
+        "resp_content": "```json\n{\n    \"analysis\": \"The zh subtitle consists of two main parts: a welcoming phrase and an announcement of arrival at Beijing West Railway Station. The en subtitle combines both ideas in one sentence, but semantically matches the two zh segments: 'Welcome to the city' aligns with '北京欢迎您的到来', and 'We’ve arrived at Beijing West Railway Station.' aligns with '北京西站到了'. A natural split in the en subtitle is possible by separating the greeting from the arrival announcement.\",\n    \"align\": [\n        {\n            \"src_part_1\": \"北京欢迎您的到来\",\n            \"target_part_1\": \"Welcome to the city.\"\n        },\n        {\n            \"src_part_2\": \" 北京西站到了\",\n            \"target_part_2\": \"We’ve arrived at Beijing West Railway Station.\"\n        }\n    ]\n}\n```",
+        "resp_type": "json",
+        "resp": {
+            "analysis": "The zh subtitle consists of two main parts: a welcoming phrase and an announcement of arrival at Beijing West Railway Station. The en subtitle combines both ideas in one sentence, but semantically matches the two zh segments: 'Welcome to the city' aligns with '北京欢迎您的到来', and 'We’ve arrived at Beijing West Railway Station.' aligns with '北京西站到了'. A natural split in the en subtitle is possible by separating the greeting from the arrival announcement.",
+            "align": [
+                {
+                    "src_part_1": "北京欢迎您的到来",
+                    "target_part_1": "Welcome to the city."
+                },
+                {
+                    "src_part_2": " 北京西站到了",
+                    "target_part_2": "We’ve arrived at Beijing West Railway Station."
+                }
+            ]
+        },
+        "message": null
+    }
+]

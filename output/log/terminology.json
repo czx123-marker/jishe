@@ -1,0 +1,45 @@
+{
+    "theme": "本视频介绍了北京市作为中国首都及其深厚的历史文化底蕴和现代都市风貌。重点突出了北京如何实现古典与现代的完美融合，是全球独特的双奥之城。",
+    "terms": [
+        {
+            "src": "国际大都会",
+            "tgt": "international metropolis",
+            "note": "指在全球具有重要影响力，人口集中、经济发达的大城市"
+        },
+        {
+            "src": "历史底蕴",
+            "tgt": "historical heritage",
+            "note": "指城市悠久历史所积淀的深厚文化和人文内涵"
+        },
+        {
+            "src": "王朝",
+            "tgt": "dynasty",
+            "note": "中国历史上的封建统治时期单位，如元、明、清等"
+        },
+        {
+            "src": "高楼大厦",
+            "tgt": "skyscrapers",
+            "note": "指北京现代城市景观中的高层建筑群"
+        },
+        {
+            "src": "交通网",
+            "tgt": "transportation network",
+            "note": "城市内部及周边发达的交通系统，包括地铁、公路等"
+        },
+        {
+            "src": "古典与现代",
+            "tgt": "classical and modern",
+            "note": "形容北京既有传统文化元素，也有现代化特征"
+        },
+        {
+            "src": "中国文化",
+            "tgt": "Chinese culture",
+            "note": "指中华民族悠久历史中形成的文化传统与价值观"
+        },
+        {
+            "src": "北京西站",
+            "tgt": "Beijing West Railway Station",
+            "note": "北京市重要的铁路交通枢纽之一"
+        }
+    ]
+}

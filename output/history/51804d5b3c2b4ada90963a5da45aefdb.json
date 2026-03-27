@@ -1,0 +1,194 @@
+{
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 6.480000019073486,
+      "text": "这是为了解决一个问题",
+      "source": "This is to address the problem that",
+      "words": [
+        {
+          "word": "这是"
+        },
+        {
+          "word": "为了"
+        },
+        {
+          "word": "解决"
+        },
+        {
+          "word": "一个"
+        },
+        {
+          "word": "问题"
+        }
+      ]
+    },
+    {
+      "start": 0.0,
+      "end": 6.480000019073486,
+      "text": "各国还没有统一、强制性的企业报告标准",
+      "source": "there has been no global set of standards that's mandatory for companies to follow",
+      "words": [
+        {
+          "word": "各国"
+        },
+        {
+          "word": "还"
+        },
+        {
+          "word": "没有"
+        },
+        {
+          "word": "统一"
+        },
+        {
+          "word": "、"
+        },
+        {
+          "word": "强制性"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "企业"
+        },
+        {
+          "word": "报告"
+        },
+        {
+          "word": "标准"
+        }
+      ]
+    },
+    {
+      "start": 6.760000228881836,
+      "end": 12.5600004196167,
+      "text": "这也让不同公司之间的信息难以对比",
+      "source": "Which has meant there's been issues over comparability",
+      "words": [
+        {
+          "word": "这"
+        },
+        {
+          "word": "也"
+        },
+        {
+          "word": "让"
+        },
+        {
+          "word": "不同"
+        },
+        {
+          "word": "公司"
+        },
+        {
+          "word": "之间"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "信息"
+        },
+        {
+          "word": "难以"
+        },
+        {
+          "word": "对比"
+        }
+      ]
+    },
+    {
+      "start": 0.0,
+      "end": 0.0,
+      "text": "而且通常只有大企业会公布相关信息 所以为了推动真正的全球标准",
+      "source": "and really often only large companies disclosing anything So as an attempt to make a real global set of standards",
+      "words": [
+        {
+          "word": "而且"
+        },
+        {
+          "word": "通常"
+        },
+        {
+          "word": "只有"
+        },
+        {
+          "word": "大"
+        },
+        {
+          "word": "企业"
+        },
+        {
+          "word": "会"
+        },
+        {
+          "word": "公布"
+        },
+        {
+          "word": "相关"
+        },
+        {
+          "word": "信息"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "所以"
+        },
+        {
+          "word": "为了"
+        },
+        {
+          "word": "推动"
+        },
+        {
+          "word": "真正"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "全球"
+        },
+        {
+          "word": "标准"
+        }
+      ]
+    },
+    {
+      "start": 12.96000003814697,
+      "end": 18.68000030517578,
+      "text": "于是新推出了S1和S2准则",
+      "source": "they've issued s1 and s2",
+      "words": [
+        {
+          "word": "于是"
+        },
+        {
+          "word": "新"
+        },
+        {
+          "word": "推出"
+        },
+        {
+          "word": "了"
+        },
+        {
+          "word": "S1"
+        },
+        {
+          "word": "和"
+        },
+        {
+          "word": "S2"
+        },
+        {
+          "word": "准则"
+        }
+      ]
+    }
+  ]
+}

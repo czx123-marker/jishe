@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生词本 | Vocabulary Book</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/vocabulary.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">词</div>
+                <div class="logo-text">
+                    <h1>词汇成长册</h1>
+                    <p>Vocabulary Progress Tracker</p>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index') }}">首页</a></li>
+                <li><a href="{{ url_for('video_translation_page') }}">视频转译</a></li>
+                <li><a href="{{ url_for('practice_page') }}">练习题</a></li>
+                <li><a href="{{ url_for('vocabulary_page') }}" class="active">生词本</a></li>
+                <li><a href="{{ url_for('video_translation_page') }}#history-sidebar">历史记录</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="vocab-wrapper">
+        <section class="hero-card">
+            <h1>我的生词本</h1>
+            <p>这里汇总了你在翻译过程中收藏的全部词汇。保持复习与练习，逐步巩固释义、发音与例句，打造属于你的多语言记忆体系。</p>
+        </section>
+
+        <section class="cta-card">
+            <h2>你准备好对生词进行练习了吗？</h2>
+            <p>点击下方按钮，大模型会根据当前生词本生成五道多项选择题，覆盖释义、读音、造句等要点。完成后可继续“再练一批”，直到覆盖所有生词。</p>
+            <a class="cta-button" href="{{ url_for('practice_page') }}">开始练习</a>
+        </section>
+
+        <section class="words-section">
+            <header>
+                <h2>词汇清单</h2>
+                <small>共 {{ words|length }} 个生词</small>
+            </header>
+
+            {% if words %}
+                <table class="word-table">
+                    <thead>
+                        <tr>
+                            <th>单词 / Word</th>
+                            <th>拼音 / Pronunciation</th>
+                            <th>释义 / Definition</th>
+                            <th>示例 / Example</th>
+                            <th>加入日期</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in words %}
+                            <tr>
+                                <td><strong>{{ item.word }}</strong></td>
+                                <td>{{ item.pinyin or '-' }}</td>
+                                <td>{{ item.definition or '——' }}</td>
+                                <td style="white-space: pre-wrap;">{{ item.example or '——' }}</td>
+                                <td>{{ item.timestamp.split(' ')[0] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <div class="empty-state">
+                    <h3>生词本还是空的</h3>
+                    <p>在视频翻译页面点击字幕中的单词即可加入生词本，或直接开始翻译新视频。</p>
+                </div>
+            {% endif %}
+        </section>
+    </main>
+</body>
+</html>

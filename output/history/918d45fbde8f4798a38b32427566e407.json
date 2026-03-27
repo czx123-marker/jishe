@@ -1,0 +1,648 @@
+{
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 8.539999961853027,
+      "text": "什么是温室效应？",
+      "source": "What is the greenhouse gas effect?",
+      "words": [
+        {
+          "word": "什么"
+        },
+        {
+          "word": "是"
+        },
+        {
+          "word": "温室效应"
+        },
+        {
+          "word": "？"
+        }
+      ]
+    },
+    {
+      "start": 8.539999961853027,
+      "end": 13.89999961853027,
+      "text": "地球表面吸收了太阳的热量",
+      "source": "The Earth's crust is heated by the Sun's rays",
+      "words": [
+        {
+          "word": "地球表面"
+        },
+        {
+          "word": "吸收"
+        },
+        {
+          "word": "了"
+        },
+        {
+          "word": "太阳"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "热量"
+        }
+      ]
+    },
+    {
+      "start": 0.0,
+      "end": 0.0,
+      "text": "然后又把这些热量释放到大气中",
+      "source": "and returns the heat supplied to the atmosphere",
+      "words": [
+        {
+          "word": "然后"
+        },
+        {
+          "word": "又"
+        },
+        {
+          "word": "把"
+        },
+        {
+          "word": "这些"
+        },
+        {
+          "word": "热量"
+        },
+        {
+          "word": "释放"
+        },
+        {
+          "word": "到"
+        },
+        {
+          "word": "大气"
+        },
+        {
+          "word": "中"
+        }
+      ]
+    },
+    {
+      "start": 13.89999961853027,
+      "end": 19.57999992370605,
+      "text": "这些热量又被空气中的少量气体吸收",
+      "source": "where it is absorbed by gases that are present in air in very small concentrations.",
+      "words": [
+        {
+          "word": "这些"
+        },
+        {
+          "word": "热量"
+        },
+        {
+          "word": "又"
+        },
+        {
+          "word": "被"
+        },
+        {
+          "word": "空气"
+        },
+        {
+          "word": "中"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "少量"
+        },
+        {
+          "word": "气体"
+        },
+        {
+          "word": "吸收"
+        }
+      ]
+    },
+    {
+      "start": 19.57999992370605,
+      "end": 22.47999954223633,
+      "text": "这种现象被称为温室效应",
+      "source": "This is known as the greenhouse effect.",
+      "words": [
+        {
+          "word": "这种"
+        },
+        {
+          "word": "现象"
+        },
+        {
+          "word": "被"
+        },
+        {
+          "word": "称为"
+        },
+        {
+          "word": "温室效应"
+        }
+      ]
+    },
+    {
+      "start": 22.47999954223633,
+      "end": 27.86000061035156,
+      "text": "大气中进入和射出的太阳能量保持平衡",
+      "source": "The equilibrium between the solar radiation that enters the atmosphere",
+      "words": [
+        {
+          "word": "大气"
+        },
+        {
+          "word": "中"
+        },
+        {
+          "word": "进入"
+        },
+        {
+          "word": "和"
+        },
+        {
+          "word": "射出"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "太阳"
+        },
+        {
+          "word": "能量"
+        },
+        {
+          "word": "保持平衡"
+        }
+      ]
+    },
+    {
+      "start": 0.0,
+      "end": 0.0,
+      "text": "这样，全球气候就能保持稳定",
+      "source": "and the solar radiation that emits keeps the climate conditions stable.",
+      "words": [
+        {
+          "word": "这样"
+        },
+        {
+          "word": "，"
+        },
+        {
+          "word": "全球"
+        },
+        {
+          "word": "气候"
+        },
+        {
+          "word": "就"
+        },
+        {
+          "word": "能"
+        },
+        {
+          "word": "保持稳定"
+        }
+      ]
+    },
+    {
+      "start": 31.21999931335449,
+      "end": 35.97999954223633,
+      "text": "但这一平衡已经被人类活动打破",
+      "source": "But human activity has now broken this equilibrium",
+      "words": [
+        {
+          "word": "但"
+        },
+        {
+          "word": "这"
+        },
+        {
+          "word": "一"
+        },
+        {
+          "word": "平衡"
+        },
+        {
+          "word": "已经"
+        },
+        {
+          "word": "被"
+        },
+        {
+          "word": "人类"
+        },
+        {
+          "word": "活动"
+        },
+        {
+          "word": "打破"
+        }
+      ]
+    },
+    {
+      "start": 0.0,
+      "end": 0.0,
+      "text": "由于人类排放的温室气体增加",
+      "source": "because it has increased the concentration of gases",
+      "words": [
+        {
+          "word": "由于"
+        },
+        {
+          "word": "人类"
+        },
+        {
+          "word": "排放"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "温室"
+        },
+        {
+          "word": "气体"
+        },
+        {
+          "word": "增加"
+        }
+      ]
+    },
+    {
+      "start": 35.97999954223633,
+      "end": 39.2599983215332,
+      "text": "导致大气温度不断上升",
+      "source": "which helps to overheat the atmosphere.",
+      "words": [
+        {
+          "word": "导致"
+        },
+        {
+          "word": "大气"
+        },
+        {
+          "word": "温度"
+        },
+        {
+          "word": "不断"
+        },
+        {
+          "word": "上升"
+        }
+      ]
+    },
+    {
+      "start": 39.2599983215332,
+      "end": 45.29999923706055,
+      "text": "二氧化碳和甲烷是导致全球气候变暖的主要元凶，约占70%的升温原因",
+      "source": "Carbon dioxide, or methane, responsible for 70% of overheating",
+      "words": [
+        {
+          "word": "二氧化碳"
+        },
+        {
+          "word": "和"
+        },
+        {
+          "word": "甲烷"
+        },
+        {
+          "word": "是"
+        },
+        {
+          "word": "导致"
+        },
+        {
+          "word": "全球"
+        },
+        {
+          "word": "气候"
+        },
+        {
+          "word": "变暖"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "主要"
+        },
+        {
+          "word": "元凶"
+        },
+        {
+          "word": "，"
+        },
+        {
+          "word": "约"
+        },
+        {
+          "word": "占"
+        },
+        {
+          "word": "70%"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "升温"
+        },
+        {
+          "word": "原因"
+        }
+      ]
+    },
+    {
+      "start": 0.0,
+      "end": 0.0,
+      "text": "它们本就存在于空气中，是天然的温室气体",
+      "source": "are greenhouse gases that are naturally found in air",
+      "words": [
+        {
+          "word": "它们"
+        },
+        {
+          "word": "本"
+        },
+        {
+          "word": "就"
+        },
+        {
+          "word": "存在"
+        },
+        {
+          "word": "于"
+        },
+        {
+          "word": "空气"
+        },
+        {
+          "word": "中"
+        },
+        {
+          "word": "，"
+        },
+        {
+          "word": "是"
+        },
+        {
+          "word": "天然"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "温室"
+        },
+        {
+          "word": "气体"
+        }
+      ]
+    },
+    {
+      "start": 45.29999923706055,
+      "end": 50.97999954223633,
+      "text": "但这些气体主要来源于化石燃料的燃烧",
+      "source": "particularly as a result of fossil fuels being burned,",
+      "words": [
+        {
+          "word": "但"
+        },
+        {
+          "word": "这些"
+        },
+        {
+          "word": "气体"
+        },
+        {
+          "word": "主要"
+        },
+        {
+          "word": "来源于"
+        },
+        {
+          "word": "化石"
+        },
+        {
+          "word": "燃料"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "燃烧"
+        }
+      ]
+    },
+    {
+      "start": 50.97999954223633,
+      "end": 56.2599983215332,
+      "text": "此外，灌溉农田、垃圾填埋场和养殖场也会释放甲烷",
+      "source": "but also because of emissions of methane from irrigated crops, dumps and farms.",
+      "words": [
+        {
+          "word": "此外"
+        },
+        {
+          "word": "，"
+        },
+        {
+          "word": "灌溉"
+        },
+        {
+          "word": "农田"
+        },
+        {
+          "word": "、"
+        },
+        {
+          "word": "垃圾"
+        },
+        {
+          "word": "填埋场"
+        },
+        {
+          "word": "和"
+        },
+        {
+          "word": "养殖场"
+        },
+        {
+          "word": "也"
+        },
+        {
+          "word": "会"
+        },
+        {
+          "word": "释放"
+        },
+        {
+          "word": "甲烷"
+        }
+      ]
+    },
+    {
+      "start": 56.2599983215332,
+      "end": 61.58000183105469,
+      "text": "这些温室气体的浓度不断升高",
+      "source": "The concentration of these gases has been increasing",
+      "words": [
+        {
+          "word": "这些"
+        },
+        {
+          "word": "温室"
+        },
+        {
+          "word": "气体"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "浓度"
+        },
+        {
+          "word": "不断"
+        },
+        {
+          "word": "升高"
+        }
+      ]
+    },
+    {
+      "start": 0.0,
+      "end": 0.0,
+      "text": "随之增强的是它们吸收",
+      "source": "and therefore so has the capacity to absorb",
+      "words": [
+        {
+          "word": "随之"
+        },
+        {
+          "word": "增强"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "是"
+        },
+        {
+          "word": "它们"
+        },
+        {
+          "word": "吸收"
+        }
+      ]
+    },
+    {
+      "start": 61.58000183105469,
+      "end": 65.62000274658203,
+      "text": "并将地球释放的辐射重新反射回地表的能力",
+      "source": "and return the radiation emitted by the Earth.",
+      "words": [
+        {
+          "word": "并"
+        },
+        {
+          "word": "将"
+        },
+        {
+          "word": "地球"
+        },
+        {
+          "word": "释放"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "辐射"
+        },
+        {
+          "word": "重新"
+        },
+        {
+          "word": "反射"
+        },
+        {
+          "word": "回"
+        },
+        {
+          "word": "地表"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "能力"
+        }
+      ]
+    },
+    {
+      "start": 65.62000274658203,
+      "end": 70.33999633789062,
+      "text": "大气温度的升高正对气候造成严重影响",
+      "source": "The increase in the temperature of the atmosphere is causing serious disruption to the climate",
+      "words": [
+        {
+          "word": "大气"
+        },
+        {
+          "word": "温度"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "升高"
+        },
+        {
+          "word": "正对"
+        },
+        {
+          "word": "气候"
+        },
+        {
+          "word": "造成"
+        },
+        {
+          "word": "严重"
+        },
+        {
+          "word": "影响"
+        }
+      ]
+    },
+    {
+      "start": 70.33999633789062,
+      "end": 73.0199966430664,
+      "text": "我们必须立即采取应对措施",
+      "source": "and this now requires an immediate response.",
+      "words": [
+        {
+          "word": "我们"
+        },
+        {
+          "word": "必须"
+        },
+        {
+          "word": "立即"
+        },
+        {
+          "word": "采取"
+        },
+        {
+          "word": "应对"
+        },
+        {
+          "word": "措施"
+        }
+      ]
+    }
+  ]
+}

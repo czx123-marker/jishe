@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能练习中心 | Vocabulary Practice Hub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lianxiti.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">练</div>
+                <div class="logo-text">
+                    <h1>智能练习中心</h1>
+                    <p>Vocabulary Practice Hub</p>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index') }}">首页</a></li>
+                <li><a href="{{ url_for('video_translation_page') }}">视频转译</a></li>
+                <li><a href="{{ url_for('practice_page') }}" class="active">练习题</a></li>
+                <li><a href="{{ url_for('vocabulary_page') }}">生词本</a></li>
+                <li><a href="{{ url_for('video_translation_page') }}#history-sidebar">历史记录</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="quiz-root" class="quiz-container" data-total-words="{{ total_words }}" data-limit="5">
+        <header class="quiz-header">
+            <h1>你准备好对生词进行练习了吗？</h1>
+            <p>大模型会根据你的生词本生成 5 道多项选择题，覆盖中文、英文及其他语言的要点。完成后可批改并查看解析，点击“再练一批”继续练习剩余生词。</p>
+        </header>
+
+        <section class="quiz-status">
+            <span id="progress-label">加载题目中...</span>
+            <span id="batch-label" class="english"></span>
+        </section>
+
+        <section id="question-area" class="question-area">
+            <div class="loading">正在为你生成练习题...</div>
+        </section>
+
+        <section id="result-panel" class="result hidden">
+            <h2>练习结果 | Results</h2>
+            <p>得分：<span id="score-cn">0</span></p>
+            <p class="english">Score: <span id="score-en">0</span></p>
+            <div id="review-summary" class="review-summary"></div>
+            <div class="result-actions">
+                <button id="next-batch-btn" class="secondary-button">再练一批</button>
+                <a class="link-button" href="{{ url_for('vocabulary_page') }}">返回生词本</a>
+            </div>
+        </section>
+
+        <div class="action-buttons">
+            <button id="grade-btn" class="primary-button" disabled>批改</button>
+            <button id="reset-btn" class="secondary-button">重置选择</button>
+        </div>
+    </main>
+
+    <script>
+        window.PRACTICE_CONFIG = {
+            apiUrl: "{{ url_for('generate_practice_quizzes') }}",
+            batchLimit: 5,
+            totalWords: {{ total_words | default(0) }}
+        };
+    </script>
+    <script src="{{ url_for('static', filename='js/lianxiti.js') }}"></script>
+</body>
+</html>

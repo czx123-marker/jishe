@@ -1,0 +1,170 @@
+
+
+/* 主容器样式 */
+#main-container {
+    max-width: 800px;
+    margin:200px auto 40px;
+    padding: 0 20px;
+}
+
+/* 搜索容器样式 */
+#search-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 16px 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 18px;
+    transition: border-color 0.3s ease;
+    height: 54px;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(158, 42, 43, 0.1);
+}
+
+
+#searchButton {
+    padding: 16px 32px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 54px;
+    white-space: nowrap;
+}
+#searchButton:hover {
+    background-color: #7d2021;
+}
+
+#searchButton:active {
+    transform: translateY(1px);
+}
+.chat-bubble-btn {
+    position: fixed;
+    bottom:300px;
+    right:400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.bubble-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(158, 42, 43, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.bubble-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(158, 42, 43, 0.4);
+}
+
+.bubble-icon::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    transform: scale(0.7);
+}
+
+.bubble-icon::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 5px;
+    width: 15px;
+    height: 15px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    transform: scale(0.4);
+}
+
+.hover-tooltip {
+    position: absolute;
+    right: 70px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.hover-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -8px;
+    transform: translateY(-50%);
+    border-left: 8px solid rgba(0, 0, 0, 0.8);
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+}
+
+.chat-bubble-btn:hover .hover-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+    #main-container {
+        margin-top: 160px;
+    }
+    
+    .word-list {
+        grid-template-columns: 1fr;
+    }
+    
+    #search-container {
+        flex-direction: column;
+    }
+    
+    #searchButton {
+        width: 100%;
+    }
+    
+    .chat-bubble-btn {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .bubble-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .hover-tooltip {
+        right: 60px;
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "llm": {
+        "api_key": "sk-fA0M7LFVQpvYplqHtSAItNkHP1MWxxPspGkmabL6Lwf4pffF",
+        "base_url": "https://yunwu.ai/v1",
+        "model": "claude-3-5-sonnet-20240620"
+    },
+    "whisper": {
+        "runtime": "cloud",
+        "whisperX_302_api_key": "sk-fA0M7LFVQpvYplqHtSAItNkHP1MWxxPspGkmabL6Lwf4pffF",
+        "language": "auto",
+        "auto_detect_language": true
+    },
+    "target_language": "English"
+}

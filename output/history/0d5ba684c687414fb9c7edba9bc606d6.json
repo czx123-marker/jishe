@@ -1,0 +1,117 @@
+{
+  "segments": [
+    {
+      "start": 0,
+      "end": 2,
+      "text": "什么是温室气体效应？",
+      "source": "What is the greenhouse gas effect?",
+      "words": [
+        {
+          "word": "什么"
+        },
+        {
+          "word": "是"
+        },
+        {
+          "word": "温室"
+        },
+        {
+          "word": "气体"
+        },
+        {
+          "word": "效应"
+        },
+        {
+          "word": "？"
+        }
+      ]
+    },
+    {
+      "start": 2,
+      "end": 9,
+      "text": "地壳吸收了阳光的热量",
+      "source": "The Earth's crust is heated by the Sun's rays",
+      "words": [
+        {
+          "word": "地壳"
+        },
+        {
+          "word": "吸收"
+        },
+        {
+          "word": "了"
+        },
+        {
+          "word": "阳光"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "热量"
+        }
+      ]
+    },
+    {
+      "start": 2,
+      "end": 9,
+      "text": "并把这些热量释放到大气中",
+      "source": "and returns the heat supplied to the atmosphere",
+      "words": [
+        {
+          "word": "并"
+        },
+        {
+          "word": "把"
+        },
+        {
+          "word": "这些"
+        },
+        {
+          "word": "热量"
+        },
+        {
+          "word": "释放"
+        },
+        {
+          "word": "到"
+        },
+        {
+          "word": "大气"
+        },
+        {
+          "word": "中"
+        }
+      ]
+    },
+    {
+      "start": 9,
+      "end": 13,
+      "text": "而微量气体会吸收这些热量",
+      "source": "where it is absorbed by gases that are present in air in very small concentrations.",
+      "words": [
+        {
+          "word": "而"
+        },
+        {
+          "word": "微量"
+        },
+        {
+          "word": "气体"
+        },
+        {
+          "word": "会"
+        },
+        {
+          "word": "吸收"
+        },
+        {
+          "word": "这些"
+        },
+        {
+          "word": "热量"
+        }
+      ]
+    }
+  ]
+}

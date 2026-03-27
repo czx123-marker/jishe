@@ -1,0 +1,810 @@
+{
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.0,
+      "text": "This is water. When it freezes, it's called ice.",
+      "source": "这是一团水, 将其冷冻成固态, 这就叫冰",
+      "words": [
+        {
+          "word": "This"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "is"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "water"
+        },
+        {
+          "word": "."
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "When"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "it"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "freezes"
+        },
+        {
+          "word": ","
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "it"
+        },
+        {
+          "word": "'"
+        },
+        {
+          "word": "s"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "called"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "ice"
+        },
+        {
+          "word": "."
+        }
+      ]
+    },
+    {
+      "start": 0.0,
+      "end": 0.0,
+      "text": "Ice turns into vapor, then tiny drops form in the air as the temperature drops. That's fog.",
+      "source": "其升华为水蒸气, 在空中液化成微小水滴, 这就叫雾,气温降低",
+      "words": [
+        {
+          "word": "Ice"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "turns"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "into"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "vapor"
+        },
+        {
+          "word": ","
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "then"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "tiny"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "drops"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "form"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "in"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "the"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "air"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "as"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "the"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "temperature"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "drops"
+        },
+        {
+          "word": "."
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "That"
+        },
+        {
+          "word": "'"
+        },
+        {
+          "word": "s"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "fog"
+        },
+        {
+          "word": "."
+        }
+      ]
+    },
+    {
+      "start": 9.534246575342467,
+      "end": 11.52054794520548,
+      "text": "Water vapor settles on the grass.",
+      "source": "水蒸气在小草上凝结",
+      "words": [
+        {
+          "word": "Water"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "vapor"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "settles"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "on"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "the"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "grass"
+        },
+        {
+          "word": "."
+        }
+      ]
+    },
+    {
+      "start": 11.52054794520548,
+      "end": 13.7054794520548,
+      "text": "These drops join to make dew.",
+      "source": "汇聚在一起成为小水珠",
+      "words": [
+        {
+          "word": "These"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "drops"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "join"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "to"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "make"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "dew"
+        },
+        {
+          "word": "."
+        }
+      ]
+    },
+    {
+      "start": 0.0,
+      "end": 0.0,
+      "text": "That's dew. If the temperature drops sharply,",
+      "source": "这就叫露 如果气温骤降",
+      "words": [
+        {
+          "word": "That"
+        },
+        {
+          "word": "'"
+        },
+        {
+          "word": "s"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "dew"
+        },
+        {
+          "word": "."
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "If"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "the"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "temperature"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "drops"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "sharply"
+        },
+        {
+          "word": ","
+        }
+      ]
+    },
+    {
+      "start": 16.02068947101461,
+      "end": 19.93103382505219,
+      "text": "Water vapor turns straight into tiny white ice crystals on...",
+      "source": "水蒸气在小草上直接凝化成白色小冰晶",
+      "words": [
+        {
+          "word": "Water"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "vapor"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "turns"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "straight"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "into"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "tiny"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "white"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "ice"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "crystals"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "on"
+        },
+        {
+          "word": "..."
+        }
+      ]
+    },
+    {
+      "start": 20.79999923706055,
+      "end": 23.52222145928277,
+      "text": "That's frost. If it keeps getting colder and there's a light breeze,",
+      "source": "这便是霜 如果气温持续降低且伴有微风",
+      "words": [
+        {
+          "word": "That"
+        },
+        {
+          "word": "'"
+        },
+        {
+          "word": "s"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "frost"
+        },
+        {
+          "word": "."
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "If"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "it"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "keeps"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "getting"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "colder"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "and"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "there"
+        },
+        {
+          "word": "'"
+        },
+        {
+          "word": "s"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "a"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "light"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "breeze"
+        },
+        {
+          "word": ","
+        }
+      ]
+    },
+    {
+      "start": 23.52222145928277,
+      "end": 27.02222145928277,
+      "text": "Fluffy ice crystals like ornaments can build up on branches.",
+      "source": "树枝上就容易形成挂件一样的蓬松冰晶",
+      "words": [
+        {
+          "word": "Fluffy"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "ice"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "crystals"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "like"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "ornaments"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "can"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "build"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "up"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "on"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "branches"
+        },
+        {
+          "word": "."
+        }
+      ]
+    },
+    {
+      "start": 0.0,
+      "end": 0.0,
+      "text": "That's rime. Up in the sky,",
+      "source": "这便是松 这是天上",
+      "words": [
+        {
+          "word": "That"
+        },
+        {
+          "word": "'"
+        },
+        {
+          "word": "s"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "rime"
+        },
+        {
+          "word": "."
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "Up"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "in"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "the"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "sky"
+        },
+        {
+          "word": ","
+        }
+      ]
+    },
+    {
+      "start": 0.0,
+      "end": 0.0,
+      "text": "If you see small, soft snow pellets falling,",
+      "source": "如果下起不透明小雪球, 不是特别硬",
+      "words": [
+        {
+          "word": "If"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "you"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "see"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "small"
+        },
+        {
+          "word": ","
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "soft"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "snow"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "pellets"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "falling"
+        },
+        {
+          "word": ","
+        }
+      ]
+    },
+    {
+      "start": 31.90869488923446,
+      "end": 35.82173836749533,
+      "text": "This is sleet.",
+      "source": "这便是线",
+      "words": [
+        {
+          "word": "This"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "is"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "sleet"
+        },
+        {
+          "word": "."
+        }
+      ]
+    },
+    {
+      "start": 31.90869488923446,
+      "end": 35.82173836749533,
+      "text": "If they're clear, larger, and harder ice balls,",
+      "source": "如果是透明冰球且相对较大和硬",
+      "words": [
+        {
+          "word": "If"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "they"
+        },
+        {
+          "word": "'"
+        },
+        {
+          "word": "re"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "clear"
+        },
+        {
+          "word": ","
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "larger"
+        },
+        {
+          "word": ","
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "and"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "harder"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "ice"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "balls"
+        },
+        {
+          "word": ","
+        }
+      ]
+    },
+    {
+      "start": 35.82173836749533,
+      "end": 36.79999923706055,
+      "text": "that's hail.",
+      "source": "这便是冰雹",
+      "words": [
+        {
+          "word": "that"
+        },
+        {
+          "word": "'"
+        },
+        {
+          "word": "s"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "hail"
+        },
+        {
+          "word": "."
+        }
+      ]
+    }
+  ]
+}

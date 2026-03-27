@@ -1,0 +1,194 @@
+{
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 6.480000019073486,
+      "text": "这是为了解决全球缺乏统一标准的问题。",
+      "source": "This is to address the problem that there has been no global set of standards",
+      "words": [
+        {
+          "word": "这是"
+        },
+        {
+          "word": "为了"
+        },
+        {
+          "word": "解决"
+        },
+        {
+          "word": "全球"
+        },
+        {
+          "word": "缺乏"
+        },
+        {
+          "word": "统一标准"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "问题"
+        },
+        {
+          "word": "。"
+        }
+      ]
+    },
+    {
+      "start": 0.0,
+      "end": 6.480000019073486,
+      "text": "也没有强制企业遵守的标准。",
+      "source": "that's mandatory for companies to follow",
+      "words": [
+        {
+          "word": "也"
+        },
+        {
+          "word": "没有"
+        },
+        {
+          "word": "强制"
+        },
+        {
+          "word": "企业"
+        },
+        {
+          "word": "遵守"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "标准"
+        },
+        {
+          "word": "。"
+        }
+      ]
+    },
+    {
+      "start": 6.760000228881836,
+      "end": 12.5600004196167,
+      "text": "这造成了信息披露的可比性问题。",
+      "source": "Which has meant there's been issues over comparability",
+      "words": [
+        {
+          "word": "这"
+        },
+        {
+          "word": "造成"
+        },
+        {
+          "word": "了"
+        },
+        {
+          "word": "信息"
+        },
+        {
+          "word": "披露"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "可比性"
+        },
+        {
+          "word": "问题"
+        },
+        {
+          "word": "。"
+        }
+      ]
+    },
+    {
+      "start": 0.0,
+      "end": 0.0,
+      "text": "并且往往只有大型企业会披露信息。为了解决这些问题，",
+      "source": "and really often only large companies disclosing anything So as an attempt to make a real global set of standards",
+      "words": [
+        {
+          "word": "并且"
+        },
+        {
+          "word": "往往"
+        },
+        {
+          "word": "只有"
+        },
+        {
+          "word": "大型"
+        },
+        {
+          "word": "企业"
+        },
+        {
+          "word": "会"
+        },
+        {
+          "word": "披露"
+        },
+        {
+          "word": "信息"
+        },
+        {
+          "word": "。"
+        },
+        {
+          "word": "为了"
+        },
+        {
+          "word": "解决"
+        },
+        {
+          "word": "这些"
+        },
+        {
+          "word": "问题"
+        },
+        {
+          "word": "，"
+        }
+      ]
+    },
+    {
+      "start": 12.96000003814697,
+      "end": 18.68000030517578,
+      "text": "他们推出了S1和S2两项新标准。",
+      "source": "they've issued s1 and s2",
+      "words": [
+        {
+          "word": "他们"
+        },
+        {
+          "word": "推出"
+        },
+        {
+          "word": "了"
+        },
+        {
+          "word": "S1"
+        },
+        {
+          "word": "和"
+        },
+        {
+          "word": "S2"
+        },
+        {
+          "word": "两项"
+        },
+        {
+          "word": "新"
+        },
+        {
+          "word": "标准"
+        },
+        {
+          "word": "。"
+        }
+      ]
+    }
+  ]
+}

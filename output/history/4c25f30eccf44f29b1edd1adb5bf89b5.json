@@ -1,0 +1,126 @@
+{
+  "segments": [
+    {
+      "start": 0,
+      "end": 2,
+      "text": "温室气体效应是什么？",
+      "source": "What is the greenhouse gas effect?",
+      "words": [
+        {
+          "word": "温室"
+        },
+        {
+          "word": "气体"
+        },
+        {
+          "word": "效应"
+        },
+        {
+          "word": "是"
+        },
+        {
+          "word": "什么"
+        },
+        {
+          "word": "？"
+        }
+      ]
+    },
+    {
+      "start": 2,
+      "end": 9,
+      "text": "地壳会吸收太阳光的能量",
+      "source": "The Earth's crust is heated by the Sun's rays",
+      "words": [
+        {
+          "word": "地壳"
+        },
+        {
+          "word": "会"
+        },
+        {
+          "word": "吸收"
+        },
+        {
+          "word": "太阳光"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "能量"
+        }
+      ]
+    },
+    {
+      "start": 2,
+      "end": 9,
+      "text": "并将这些能量传递到大气层",
+      "source": "and returns the heat supplied to the atmosphere",
+      "words": [
+        {
+          "word": "并"
+        },
+        {
+          "word": "将"
+        },
+        {
+          "word": "这些"
+        },
+        {
+          "word": "能量"
+        },
+        {
+          "word": "传递"
+        },
+        {
+          "word": "到"
+        },
+        {
+          "word": "大气层"
+        }
+      ]
+    },
+    {
+      "start": 9,
+      "end": 13,
+      "text": "这些能量又会被大气中的少量气体吸收",
+      "source": "where it is absorbed by gases that are present in air in very small concentrations.",
+      "words": [
+        {
+          "word": "这些"
+        },
+        {
+          "word": "能量"
+        },
+        {
+          "word": "又"
+        },
+        {
+          "word": "会"
+        },
+        {
+          "word": "被"
+        },
+        {
+          "word": "大气"
+        },
+        {
+          "word": "中"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "少量"
+        },
+        {
+          "word": "气体"
+        },
+        {
+          "word": "吸收"
+        }
+      ]
+    }
+  ]
+}

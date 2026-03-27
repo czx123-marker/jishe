@@ -1,0 +1,248 @@
+:root {
+    --primary: #9E2A2B;
+    --secondary: #495867;
+    --accent: #E9B872;
+    --paper: #F4EBD0;
+    --white: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.12);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(to left, rgba(244, 235, 208, 0.9), rgba(233, 184, 114, 0.35));
+    color: var(--secondary);
+    min-height: 100vh;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    box-shadow: 0 2px 16px var(--shadow);
+    padding: 16px 0;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: var(--primary);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.logo-text h1 {
+    font-size: 20px;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+
+.logo-text p {
+    font-size: 14px;
+    color: var(--secondary);
+    opacity: 0.8;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--secondary);
+    font-weight: 600;
+    padding: 6px 8px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary);
+    background: rgba(158, 42, 43, 0.12);
+}
+
+.vocab-wrapper {
+    max-width: 1100px;
+    margin: 40px auto 60px;
+    padding: 0 24px 60px;
+}
+
+.hero-card {
+    background: var(--white);
+    box-shadow: 0 18px 35px var(--shadow);
+    border-radius: 24px;
+    padding: 36px 40px;
+    margin-bottom: 28px;
+    display: grid;
+    gap: 16px;
+    border: 2px solid rgba(158, 42, 43, 0.15);
+}
+
+.hero-card h1 {
+    font-size: 32px;
+    color: var(--primary);
+}
+
+.hero-card p {
+    font-size: 16px;
+    color: var(--secondary);
+    max-width: 780px;
+}
+
+.cta-card {
+    background: rgba(233, 184, 114, 0.18);
+    border: 1px solid rgba(233, 184, 114, 0.45);
+    padding: 24px 28px;
+    border-radius: 18px;
+    margin-bottom: 32px;
+}
+
+.cta-card h2 {
+    font-size: 22px;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.cta-card p {
+    font-size: 15px;
+    color: var(--secondary);
+    margin-bottom: 16px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 10px;
+    background: var(--primary);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 12px rgba(158, 42, 43, 0.25);
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(158, 42, 43, 0.35);
+}
+
+.words-section {
+    background: var(--white);
+    border-radius: 18px;
+    box-shadow: 0 16px 30px var(--shadow);
+    padding: 28px 32px;
+    border: 2px solid rgba(158, 42, 43, 0.12);
+}
+
+.words-section header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 18px;
+}
+
+.words-section h2 {
+    color: var(--primary);
+}
+
+.words-section small {
+    color: var(--secondary);
+    opacity: 0.7;
+}
+
+.word-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    font-size: 15px;
+}
+
+.word-table thead {
+    background: rgba(158, 42, 43, 0.08);
+}
+
+.word-table th,
+.word-table td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid rgba(73, 88, 103, 0.1);
+}
+
+.word-table th {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.word-table tbody tr:hover {
+    background: rgba(158, 42, 43, 0.08);
+}
+
+.word-table td strong {
+    color: var(--primary);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 48px 24px;
+    color: var(--secondary);
+}
+
+.empty-state p {
+    margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-card,
+    .cta-card,
+    .words-section {
+        padding: 24px;
+    }
+
+    .word-table {
+        font-size: 14px;
+    }
+
+    .word-table th,
+    .word-table td {
+        padding: 10px 12px;
+    }
+}

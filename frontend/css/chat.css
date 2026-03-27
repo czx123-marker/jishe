@@ -1,0 +1,116 @@
+/* 聊天容器样式 */
+.chat-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    height: calc(100vh - 140px);
+    display: flex;
+    flex-direction: column;
+}
+
+/* 聊天消息区域 */
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+/* 用户消息样式 */
+.user-message {
+    text-align: right;
+    margin-bottom: 15px;
+    padding-right: 20px;
+}
+
+.user-message p {
+    display: inline-block;
+    background-color: var(--accent);
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 18px 18px 0 18px;
+    max-width: 70%;
+}
+
+/* 机器人消息样式 */
+.bot-message {
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+.bot-message p {
+    display: inline-block;
+    background-color: var(--secondary);
+    color: var(--white);
+    padding: 10px 15px;
+    border-radius: 18px 18px 18px 0;
+    max-width: 70%;
+}
+
+/* 英文提示样式 */
+.english, .english-hint {
+    font-size: 0.9em;
+    opacity: 0.8;
+    margin-top: 5px;
+}
+
+/* 提示文本样式 */
+.hint {
+    font-size: 0.85em;
+    opacity: 0.7;
+    font-style: italic;
+}
+
+/* 输入区域样式 */
+.input-area {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#user-input {
+    flex: 1;
+    padding: 12px 20px;
+    border: 2px solid var(--secondary);
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#user-input:focus {
+    border-color: var(--primary);
+}
+
+.input-area button {
+    padding: 12px 30px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.input-area button:hover {
+    background-color: #8a2324;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .chat-container {
+        padding: 10px;
+    }
+    
+    .chat-messages {
+        padding: 15px;
+    }
+    
+    .user-message p, .bot-message p {
+        max-width: 85%;
+    }
+}

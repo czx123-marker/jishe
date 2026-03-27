@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>声动丝路——面向海外受众的智能视频译制与文化伴读平台</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="{{ url_for('static', filename='assets/logo.jpg') }}" alt="Logo" class="logo-img">
+                </div>
+                <div class="logo-text">
+                    <h1 class="multi-line-title">
+                        <span class="title-main">声动丝路</span><br>
+                        <span class="title-sub">面向海外受众的智能视频译制与文化伴读平台</span>
+                    </h1>
+                </div>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home<br><small>首页</small></a></li>
+                <li><a href="{{ url_for('video_translation_page') }}">Translate Video<br><small>视频转译</small></a></li>
+                <li><a href="{{ url_for('vocabulary_page') }}">Saved Vocab<br><small>生词本收集</small></a></li>
+                <li><a href="{{ url_for('video_translation_page') }}#history-sidebar">History<br><small>翻译记录</small></a></li>
+                <li><button class="login-btn" data-login-url="{{ url_for('login_page') }}">登录 / Login</button></li>
+            </ul>
+
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>声动丝路<br>Shengdong Silk Road</h1>
+                <p>跨越语言障碍，连接中西文化 | Break language barriers, connect Chinese and Western cultures</p>
+                <p>基于大模型的"视听译制+文化解析+AI互动学习"一站式中华文化出海与汉语伴读平台</p>
+                <p>Powerful tools designed specifically for English learners - translate videos, practice with exercises,
+                    and collect new vocabulary easily.</p>
+                <a href="#translate-video" class="cta-button">Start Learning | 开始学习</a>
+            </div>
+            <div class="hero-image">
+                <img src="{{ url_for('static', filename='assets/chinese-poem.jpg') }}" alt="Explore English Learning" class="framed-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Translate Video Section -->
+    <section id="translate-video" class="section translate-video">
+        <div class="container">
+            <h2 class="section-title">Video Translation | 视频转译</h2>
+            <div class="function-grid">
+                <div class="function-card">
+                    <div class="function-icon">🎬</div>
+                    <h3>Translate Any Video | 视频翻译</h3>
+                    <p>Upload videos or paste YouTube links to get instant Chinese translations with accurate subtitles and cultural context explanations.</p>
+                    <p>上传视频或粘贴YouTube链接，获取即时中文翻译，包含准确字幕和文化背景解释。</p>
+                    <a href="{{ url_for('video_translation_page') }}" class="function-button">Start Translating | 开始翻译</a>
+                </div>
+                
+                <div class="function-demo">
+                    <div class="demo-placeholder">
+                        <div class="demo-content">
+                            <div class="demo-icon">⚙️</div>
+                            <h4>How It Works | 操作说明</h4>
+                            <div class="demo-steps">
+                                <div class="demo-step">
+                                    <span class="step-number">1</span>
+                                    <span>Upload Video | 上传视频</span>
+                                </div>
+                                <div class="demo-step">
+                                    <span class="step-number">2</span>
+                                    <span>AI Translation | AI翻译</span>
+                                </div>
+                                <div class="demo-step">
+                                    <span class="step-number">3</span>
+                                    <span>Get Subtitles | 获取字幕</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Saved Vocabulary Section -->
+    <section id="saved-vocab" class="section saved-vocab">
+        <div class="container">
+            <h2 class="section-title">Vocabulary Collection | 生词本收集</h2>
+            <div class="function-grid">
+                <div class="function-demo">
+                    <div class="demo-placeholder">
+                        <div class="demo-content">
+                            <div class="demo-icon">📚</div>
+                            <h4>Your Progress | 学习进度</h4>
+                            <div class="progress-stats">
+                                <div class="progress-item">
+                                    <span class="progress-label">Words Saved | 已保存</span>
+                                    <span class="progress-number">0</span>
+                                </div>
+                                <div class="progress-item">
+                                    <span class="progress-label">Mastered | 已掌握</span>
+                                    <span class="progress-number">0</span>
+                                </div>
+                                <div class="progress-item">
+                                    <span class="progress-label">Review | 需复习</span>
+                                    <span class="progress-number">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="function-card">
+                    <div class="function-icon">💾</div>
+                    <h3>Save & Practice | 保存与练习</h3>
+                    <p>Collect vocabulary from translated videos, organize your word bank, and practice with spaced repetition exercises.</p>
+                    <p>从翻译视频中收集词汇，整理您的单词库，并通过间隔重复练习进行学习。</p>
+                    <a href="{{ url_for('vocabulary_page') }}" class="function-button">View Vocabulary | 查看生词本</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title">About This Platform | 关于本平台</h2>
+            <p class="about-text">
+                Designed specifically for English learners, our tools help you overcome common challenges in language
+                acquisition through practical, easy-to-use features with a focus on Chinese cultural context.
+            </p>
+            <p class="about-text">
+                专为英语学习者设计，我们的工具通过实用、易用的功能帮助你克服语言学习中的常见挑战，同时注重融入中国文化背景。
+            </p>
+
+            <div class="language-info">
+                <div class="language-icon">🌐</div>
+                <div>
+                    <p class="language-label">Supported Languages | 支持语言</p>
+                    <p class="language-list">English, 中文, Español, Français, Deutsch, 日本語</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="logo">
+                    <div class="logo-icon">学</div>
+                    <h3>English Learner's Toolkit</h3>
+                </div>
+                <p>Bridging languages, connecting cultures<br>架起语言桥梁，连接多元文化</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Tools | 工具</h4>
+                <ul class="footer-links">
+                    <li><a href="{{ url_for('video_translation_page') }}">视频转译 | Video Translation</a></li>
+                    <li><a href="{{ url_for('practice_page') }}">习题模块 | Exercise Module</a></li>
+                    <li><a href="{{ url_for('vocabulary_page') }}">生词本收集 | Vocabulary</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Connect | 联系我们</h4>
+                <p>Join our community of language learners<br>加入我们的语言学习者社区</p>
+                <div class="social-links">
+                    <a href="#" title="WeChat | 微信"><i class="fa-brands fa-weixin"></i></a>
+                    <a href="#" title="Weibo | 微博"><i class="fa-brands fa-weibo"></i></a>
+                    <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2023 English Learner's Toolkit. All rights reserved.</p>
+            <p>© 2023 英语学习者工具包。保留所有权利。</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+{
+  "segments": [
+    {
+      "start": 0,
+      "end": 2,
+      "text": "温室气体效应到底是什么？",
+      "source": "What is the greenhouse gas effect?",
+      "words": [
+        {
+          "word": "温室"
+        },
+        {
+          "word": "气体"
+        },
+        {
+          "word": "效应"
+        },
+        {
+          "word": "到底"
+        },
+        {
+          "word": "是"
+        },
+        {
+          "word": "什么"
+        },
+        {
+          "word": "？"
+        }
+      ]
+    },
+    {
+      "start": 2,
+      "end": 9,
+      "text": "太阳的能量加热了地壳",
+      "source": "The Earth's crust is heated by the Sun's rays",
+      "words": [
+        {
+          "word": "太阳"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "能量"
+        },
+        {
+          "word": "加热"
+        },
+        {
+          "word": "了"
+        },
+        {
+          "word": "地壳"
+        }
+      ]
+    },
+    {
+      "start": 2,
+      "end": 9,
+      "text": "随后地壳把热量释放到大气中",
+      "source": "and returns the heat supplied to the atmosphere",
+      "words": [
+        {
+          "word": "随后"
+        },
+        {
+          "word": "地壳"
+        },
+        {
+          "word": "把"
+        },
+        {
+          "word": "热量"
+        },
+        {
+          "word": "释放"
+        },
+        {
+          "word": "到"
+        },
+        {
+          "word": "大气"
+        },
+        {
+          "word": "中"
+        }
+      ]
+    },
+    {
+      "start": 9,
+      "end": 13,
+      "text": "这些热量会被大气中的少量气体吸收",
+      "source": "where it is absorbed by gases that are present in air in very small concentrations.",
+      "words": [
+        {
+          "word": "这些"
+        },
+        {
+          "word": "热量"
+        },
+        {
+          "word": "会"
+        },
+        {
+          "word": "被"
+        },
+        {
+          "word": "大气"
+        },
+        {
+          "word": "中"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "少量"
+        },
+        {
+          "word": "气体"
+        },
+        {
+          "word": "吸收"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,296 @@
+{
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 6.480000019073486,
+      "text": "This aims to fix the issue",
+      "source": "This is to address the problem",
+      "words": [
+        {
+          "word": "This"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "aims"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "to"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "fix"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "the"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "issue"
+        }
+      ]
+    },
+    {
+      "start": 0.0,
+      "end": 6.480000019073486,
+      "text": "there hasn't been a single global standard companies must follow",
+      "source": "that there has been no global set of standards that's mandatory for companies to follow",
+      "words": [
+        {
+          "word": "there"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "hasn"
+        },
+        {
+          "word": "'"
+        },
+        {
+          "word": "t"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "been"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "a"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "single"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "global"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "standard"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "companies"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "must"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "follow"
+        }
+      ]
+    },
+    {
+      "start": 6.760000228881836,
+      "end": 12.5600004196167,
+      "text": "making it hard to compare information",
+      "source": "Which has meant there's been issues over comparability",
+      "words": [
+        {
+          "word": "making"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "it"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "hard"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "to"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "compare"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "information"
+        }
+      ]
+    },
+    {
+      "start": 0.0,
+      "end": 0.0,
+      "text": "and usually, only big companies report any data. To change this,",
+      "source": "and really often only large companies disclosing anything So as an attempt to make a real global set of standards",
+      "words": [
+        {
+          "word": "and"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "usually"
+        },
+        {
+          "word": ","
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "only"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "big"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "companies"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "report"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "any"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "data"
+        },
+        {
+          "word": "."
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "To"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "change"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "this"
+        },
+        {
+          "word": ","
+        }
+      ]
+    },
+    {
+      "start": 12.96000003814697,
+      "end": 18.68000030517578,
+      "text": "new standards called s1 and s2 have been released",
+      "source": "they've issued s1 and s2",
+      "words": [
+        {
+          "word": "new"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "standards"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "called"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "s1"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "and"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "s2"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "have"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "been"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "released"
+        }
+      ]
+    }
+  ]
+}

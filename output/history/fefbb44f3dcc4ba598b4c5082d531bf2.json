@@ -1,0 +1,292 @@
+{
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0,
+      "text": "Beijing is the capital and cultural heart of China, and the first city to host both the Summer and Winter Olympics.",
+      "source": "北京是中华人民共和国首都文化中心, 全世界第一座双奥之城,",
+      "words": [
+        {
+          "word": "Beijing"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "is"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "the"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "capital"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "and"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "cultural"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "heart"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "of"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "China"
+        },
+        {
+          "word": ","
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "and"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "the"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "first"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "city"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "to"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "host"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "both"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "the"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "Summer"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "and"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "Winter"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "Olympics"
+        },
+        {
+          "word": "."
+        }
+      ]
+    },
+    {
+      "start": 0.0,
+      "end": 0,
+      "text": "It's also a vibrant global city steeped in history, and for nearly 800 years,",
+      "source": "同时也是一座充满历史底蕴的国际大都会, 在将近八百年的时间里",
+      "words": [
+        {
+          "word": "It"
+        },
+        {
+          "word": "'"
+        },
+        {
+          "word": "s"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "also"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "a"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "vibrant"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "global"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "city"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "steeped"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "in"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "history"
+        },
+        {
+          "word": ","
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "and"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "for"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "nearly"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "800"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "years"
+        },
+        {
+          "word": ","
+        }
+      ]
+    },
+    {
+      "start": 13.25714285714286,
+      "end": 16,
+      "text": "it was the seat of several dynasties.",
+      "source": "这里曾是数个王朝的都城。",
+      "words": [
+        {
+          "word": "it"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "was"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "the"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "seat"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "of"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "several"
+        },
+        {
+          "word": " "
+        },
+        {
+          "word": "dynasties"
+        },
+        {
+          "word": "."
+        }
+      ]
+    }
+  ]
+}

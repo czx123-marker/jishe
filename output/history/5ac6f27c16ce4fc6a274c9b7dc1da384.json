@@ -1,0 +1,215 @@
+{
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 6.480000019073486,
+      "text": "这是为了解决全球一直没有统一标准体系的问题。",
+      "source": "This is to address the problem that there has been no global set of standards",
+      "words": [
+        {
+          "word": "这是"
+        },
+        {
+          "word": "为了"
+        },
+        {
+          "word": "解决"
+        },
+        {
+          "word": "全球"
+        },
+        {
+          "word": "一直"
+        },
+        {
+          "word": "没有"
+        },
+        {
+          "word": "统一标准"
+        },
+        {
+          "word": "体系"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "问题"
+        },
+        {
+          "word": "。"
+        }
+      ]
+    },
+    {
+      "start": 0.0,
+      "end": 6.480000019073486,
+      "text": "没有强制企业遵守的全球统一规则。",
+      "source": "that's mandatory for companies to follow",
+      "words": [
+        {
+          "word": "没有"
+        },
+        {
+          "word": "强制"
+        },
+        {
+          "word": "企业"
+        },
+        {
+          "word": "遵守"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "全球"
+        },
+        {
+          "word": "统一"
+        },
+        {
+          "word": "规则"
+        },
+        {
+          "word": "。"
+        }
+      ]
+    },
+    {
+      "start": 6.760000228881836,
+      "end": 12.5600004196167,
+      "text": "这也带来了信息披露上的可比性问题。",
+      "source": "Which has meant there's been issues over comparability",
+      "words": [
+        {
+          "word": "这"
+        },
+        {
+          "word": "也"
+        },
+        {
+          "word": "带来"
+        },
+        {
+          "word": "了"
+        },
+        {
+          "word": "信息"
+        },
+        {
+          "word": "披露"
+        },
+        {
+          "word": "上"
+        },
+        {
+          "word": "的"
+        },
+        {
+          "word": "可比性"
+        },
+        {
+          "word": "问题"
+        },
+        {
+          "word": "。"
+        }
+      ]
+    },
+    {
+      "start": 0.0,
+      "end": 0.0,
+      "text": "通常也只有大型公司会披露信息。为此，他们尝试制定全球统一标准。",
+      "source": "and really often only large companies disclosing anything So as an attempt to make a real global set of standards",
+      "words": [
+        {
+          "word": "通常"
+        },
+        {
+          "word": "也"
+        },
+        {
+          "word": "只有"
+        },
+        {
+          "word": "大型"
+        },
+        {
+          "word": "公司"
+        },
+        {
+          "word": "会"
+        },
+        {
+          "word": "披露"
+        },
+        {
+          "word": "信息"
+        },
+        {
+          "word": "。"
+        },
+        {
+          "word": "为此"
+        },
+        {
+          "word": "，"
+        },
+        {
+          "word": "他们"
+        },
+        {
+          "word": "尝试"
+        },
+        {
+          "word": "制定"
+        },
+        {
+          "word": "全球"
+        },
+        {
+          "word": "统一标准"
+        },
+        {
+          "word": "。"
+        }
+      ]
+    },
+    {
+      "start": 12.96000003814697,
+      "end": 18.68000030517578,
+      "text": "所以推出了S1标准和S2标准。",
+      "source": "they've issued s1 and s2",
+      "words": [
+        {
+          "word": "所以"
+        },
+        {
+          "word": "推出"
+        },
+        {
+          "word": "了"
+        },
+        {
+          "word": "S1"
+        },
+        {
+          "word": "标准"
+        },
+        {
+          "word": "和"
+        },
+        {
+          "word": "S2"
+        },
+        {
+          "word": "标准"
+        },
+        {
+          "word": "。"
+        }
+      ]
+    }
+  ]
+}

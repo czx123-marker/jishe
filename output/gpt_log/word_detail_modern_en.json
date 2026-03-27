@@ -1,0 +1,16 @@
+[
+    {
+        "model": "gpt-4.1-2025-04-14",
+        "prompt": "\n        你是一位熟悉英语教学的中文老师，正在帮助母语为中文的学习者理解一个英文单词。\n        请严格按照以下 JSON 格式返回内容，不要添加任何额外文本：\n\n        单词: \"modern\"\n\n        JSON 格式:\n        {\n          \"ipa\": \"该英文单词的国际音标 (IPA)\",\n          \"meaning_cn\": \"使用简洁中文写出的释义\",\n          \"example_sentence_en\": \"一个包含该英文单词的英文例句\",\n          \"example_sentence_cn\": \"上述英文例句的中文翻译\",\n          \"usage_note\": \"关于该词常见搭配或语法提示的简短中文说明\"\n        }\n        ",
+        "resp_content": "{\n  \"ipa\": \"/ˈmɒd.ən/\",\n  \"meaning_cn\": \"现代的；当代的\",\n  \"example_sentence_en\": \"She prefers modern music to classical.\",\n  \"example_sentence_cn\": \"她更喜欢现代音乐而不是古典音乐。\",\n  \"usage_note\": \"常作形容词，用于描述新式、流行或近期的事物，如 modern art（现代艺术）、modern technology（现代科技）等。\"\n}",
+        "resp_type": "json",
+        "resp": {
+            "ipa": "/ˈmɒd.ən/",
+            "meaning_cn": "现代的；当代的",
+            "example_sentence_en": "She prefers modern music to classical.",
+            "example_sentence_cn": "她更喜欢现代音乐而不是古典音乐。",
+            "usage_note": "常作形容词，用于描述新式、流行或近期的事物，如 modern art（现代艺术）、modern technology（现代科技）等。"
+        },
+        "message": null
+    }
+]

@@ -1,0 +1,428 @@
+/* video.css */
+:root {
+    --primary: #9E2A2B;
+    --secondary: #495867;
+    --accent: #E9B872;
+    --paper: #F4EBD0;
+}
+
+/* 全局样式美化 */
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(to left, var(--paper), var(--accent));
+    color: var(--secondary);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.page-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex; /* 使用flex布局 */
+    gap: 20px;
+}
+
+/* 主内容区域 - 调整宽度 */
+#main-content {
+    flex: 1; /* 占据剩余空间 */
+}
+
+/* 表单卡片样式美化 */
+.form-card, .language-selector, .process-btn {
+    background: var(--paper);
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    padding: 30px;
+    margin-bottom: 20px;
+    border: 2px solid rgba(158, 42, 43, 0.1);
+}
+
+.form-card h2 {
+    color: var(--primary);
+    font-size: 28px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.language-selector label, .process-btn button {
+    color: var(--secondary);
+}
+
+.form-card input[type="file"] {
+    display: none;
+}
+
+/* 上传区域样式 */
+.upload-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* 按钮样式美化 */
+.file-label {
+    background: var(--primary);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(158, 42, 43, 0.3);
+    border: none;
+}
+
+.file-label:hover {
+    background: #8a2223;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(158, 42, 43, 0.4);
+}
+
+/* 文件名显示样式 */
+.file-name-display {
+    margin-left: 10px;
+    color: var(--secondary);
+    flex: 1;
+    min-width: 200px;
+    font-style: italic;
+}
+
+/* 添加history按钮样式 */
+.history-btn {
+    background: var(--accent);
+    color: var(--secondary);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(233, 184, 114, 0.3);
+}
+
+.history-btn:hover {
+    background: #d4a563;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(233, 184, 114, 0.4);
+}
+
+/* 选择框样式 */
+select {
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid var(--secondary);
+    margin-top: 10px;
+    background: var(--paper);
+    color: var(--secondary);
+    font-weight: 500;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(158, 42, 43, 0.1);
+}
+
+/* 处理按钮样式 */
+.process-btn button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(158, 42, 43, 0.3);
+}
+
+.process-btn button:hover:not(:disabled) {
+    background: #8a2223;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(158, 42, 43, 0.4);
+}
+
+.process-btn button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* 视频容器样式 */
+#video-container video {
+    width: 100%;
+    border-radius: 15px;
+    border: 3px solid var(--accent);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* 字幕容器样式 */
+.subtitles-container {
+    background: var(--paper);
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+    border: 2px solid var(--accent);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* 操作按钮样式 */
+.action-buttons a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.action-buttons a:hover {
+    color: #8a2223;
+    text-decoration: underline;
+}
+
+/* 翻译历史侧边栏样式 - 修改为固定在右侧 */
+#history-sidebar {
+    position: sticky;
+    top: 20px;
+    width: 300px;
+    height: calc(100vh - 40px); /* 减去上下padding */
+    background: var(--paper);
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.15);
+    padding: 25px;
+    overflow-y: auto; /* 添加滚动条 */
+    margin-top: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    border: 2px solid rgba(158, 42, 43, 0.1);
+}
+
+#history-sidebar.show {
+    transform: translateX(0);
+}
+
+/* 侧边栏头部样式 */
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--accent);
+}
+
+.sidebar-header h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: var(--primary);
+    font-size: 24px;
+}
+
+/* 侧边栏切换按钮样式 */
+.sidebar-toggle {
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--secondary);
+    transition: all 0.3s ease;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.sidebar-toggle:hover {
+    color: var(--primary);
+    background: rgba(233, 184, 114, 0.2);
+}
+
+/* 历史列表样式 */
+.history-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 历史列表项样式 */
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid var(--accent);
+    text-decoration: none;
+    color: var(--secondary);
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.history-item:hover {
+    background-color: rgba(233, 184, 114, 0.1);
+    transform: translateX(5px);
+}
+
+.history-item strong {
+    display: block;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--primary);
+}
+
+.history-item small {
+    color: var(--secondary);
+    opacity: 0.8;
+}
+
+/* 空消息样式 */
+.empty-message {
+    text-align: center;
+    color: var(--secondary);
+    margin: 40px 0;
+    font-style: italic;
+}
+
+/* 显示历史按钮 */
+.show-history-btn {
+    display: none; /* 桌面版隐藏查看历史按钮 */
+}
+
+/* 添加遮罩层样式 */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+.sidebar-overlay.show {
+    display: block;
+}
+
+/* 模态框样式美化 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+/* 模态框内容样式 */
+.modal-content {
+    background-color: var(--paper);
+    margin: 15% auto;
+    padding: 30px;
+    border: 2px solid var(--accent);
+    width: 80%;
+    max-width: 500px;
+    border-radius: 30px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* 关闭按钮样式 */
+.close-button {
+    color: var(--secondary);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--primary);
+    background: rgba(233, 184, 114, 0.2);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 模态框标题样式 */
+.modal-content h2 {
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+/* 响应式设计 - 适配移动设备 */
+@media (max-width: 768px) {
+    .page-wrapper {
+        flex-direction: column;
+    }
+    
+    #history-sidebar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        border-radius: 30px 30px 0 0;
+    }
+    
+    .upload-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .file-name-display {
+        margin-left: 0;
+        margin-top: 15px;
+        text-align: center;
+    }
+    
+    .history-btn {
+        margin-top: 15px;
+    }
+    
+    .form-card, .language-selector, .process-btn {
+        padding: 20px;
+        border-radius: 20px;
+    }
+}
+
+/* 添加平滑滚动 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--paper);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #d4a563;
+}
