@@ -1,4 +1,17 @@
-"new_env/" 
-.venv/ 
-_model_cache/ 
-__pycache__/ 
+new_env/
+.venv/
+venv/
+_model_cache/
+__pycache__/
+*.py[cod]
+
+# IDE / packaging
+.vscode/
+*.egg-info/
+
+# Runtime artifacts
+output/
+uploads/
+
+# Local-only config
+test_config.json
