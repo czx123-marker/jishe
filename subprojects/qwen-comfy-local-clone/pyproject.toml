@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qwen-comfy-local-clone"
+version = "0.1.0"
+description = "Standalone local-first subtitle voice clone pipeline built around Qwen3-TTS"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "numpy>=2.0",
+  "soundfile>=0.13.1",
+  "librosa>=0.11.0",
+  "qwen-tts>=0.1.1",
+  "faster-whisper>=1.2.1",
+  "gradio>=5.23.0"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3.0"]
+
+[project.scripts]
+qwen-comfy-clone = "qwen_comfy_clone.cli:main"
+qwen-comfy-clone-webui = "qwen_comfy_clone.webui:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

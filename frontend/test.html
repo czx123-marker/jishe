@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>视频转译 | Video Translation</title>
+    <title>视频翻译 | Video Translation</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/test.css') }}">
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <div class="logo-icon">翻</div>
+                <div class="logo-icon">译</div>
                 <div class="logo-text">
-                    <h1>视频转译</h1>
+                    <h1>视频翻译</h1>
                     <p>Video Translation</p>
                 </div>
             </div>
             <ul class="nav-links">
                 <li><a href="{{ url_for('index') }}">首页</a></li>
-                <li><a href="{{ url_for('video_translation_page') }}" class="active">视频转译</a></li>
+                <li><a href="{{ url_for('video_translation_page') }}" class="active">视频翻译</a></li>
                 <li><a href="{{ url_for('practice_page') }}">练习题</a></li>
                 <li><a href="{{ url_for('vocabulary_page') }}">生词本</a></li>
                 <li><a href="#" id="history-btn" class="history-btn">历史记录</a></li>
@@ -28,228 +28,142 @@
 
     <div class="page-wrapper">
         <div id="main-content">
-        <div class="instructions">
-            <h2>上传视频进行翻译</h2>
-            <p>请从您的设备中选择一个视频或音频文件进行翻译处理</p>
-        </div>
-
-        <div id="upload-form" class="form-card">
-            <div class="upload-section">
-                <label for="file-input" class="file-label">
-                    <i class="icon-upload"></i> 选择视频文件
-                </label>
-                <input id="file-input" type="file" accept="video/*,audio/*">
-                <span id="file-name" class="file-name-display">未选择文件</span>
+            <div class="instructions">
+                <h2>上传视频进行翻译</h2>
+                <p>上传视频或音频后，系统会生成字幕；你也可以在支持的目标语言上追加原声克隆配音。</p>
             </div>
-        </div>
 
-        <div class="process-btn">
-            <div class="language-selectors">
-                <div class="selector-group-inline">
-                    <div class="inline-selector">
-                        <label for="source-language">源语言：</label>
-                        <select id="source-language" name="source_language">
-                            <option value="auto">自动检测</option>
-                            <option value="zh">中文</option>
-                            <option value="en">English</option>
-                            <option value="ja">日本語</option>
-                            <option value="ko">한국어</option>
-                            <option value="fr">Français</option>
-                            <option value="es">Español</option>
-                            <option value="de">Deutsch</option>
-                        </select>
-                    </div>
-                    <div class="inline-selector">
-                        <label for="target-language" class="select-label">目标语言：</label>
-                        <select id="target-language" name="target_language">
-                            <option value="zh" selected>中文</option>
-                            <option value="en">English</option>
-                            <option value="ja">日本語</option>
-                            <option value="ko">한국어</option>
-                            <option value="fr">Français</option>
-                            <option value="es">Español</option>
-                            <option value="de">Deutsch</option>
-                            <option value="ru">Русский</option>
-                            <option value="ar">العربية</option>
-                            <option value="hi">हिन्दी</option>
-                        </select>
-                    </div>
+            <div id="upload-form" class="form-card">
+                <div class="upload-section">
+                    <label for="file-input" class="file-label">
+                        <i class="icon-upload"></i> 选择视频文件
+                    </label>
+                    <input id="file-input" type="file" accept="video/*,audio/*">
+                    <span id="file-name" class="file-name-display">未选择文件</span>
                 </div>
             </div>
-            
-            <!-- Voice Cloning Module -->
-            <div class="voice-cloning-module">
-                <h3>音色克隆</h3>
-                <div class="voice-options">
-                    <div class="preset-voices">
-                        <label for="voice-select">选择预设音色：</label>
-                        <select id="voice-select" name="voice_select">
-                            <option value="">请选择音色</option>
-                            <option value="alex">Alex (成年男性)</option>
-                            <option value="luna">Luna (成年女性)</option>
-                            <option value="mike">Mike (青年男性)</option>
-                            <option value="sophia">Sophia (青年女性)</option>
-                            <option value="james">James (中年男性)</option>
-                            <option value="emma">Emma (中年女性)</option>
-                            <option value="david">David (老年男性)</option>
-                            <option value="grace">Grace (老年女性)</option>
-                        </select>
-                    </div>
-                    
-                    <div class="custom-voice">
-                        <label for="voice-upload">或上传自定义音色样本：</label>
-                        <div class="upload-section">
-                            <label for="voice-file-input" class="file-label">
-                                <i class="icon-upload"></i> 选择音频文件
-                            </label>
-                            <input id="voice-file-input" type="file" accept="audio/*" style="display: none;">
-                            <span id="voice-file-name" class="file-name-display">未选择文件</span>
+
+            <div class="process-btn">
+                <div class="language-selectors">
+                    <div class="selector-group-inline">
+                        <div class="inline-selector">
+                            <label for="source-language">源语言：</label>
+                            <select id="source-language" name="source_language">
+                                <option value="auto">自动检测</option>
+                                <option value="zh">中文</option>
+                                <option value="en">English</option>
+                                <option value="ja">日本語</option>
+                                <option value="ko">한국어</option>
+                                <option value="fr">Français</option>
+                                <option value="es">Español</option>
+                                <option value="de">Deutsch</option>
+                            </select>
                         </div>
-                        <div class="sample-duration">
-                            <small>建议上传3-10秒的清晰语音样本</small>
+                        <div class="inline-selector">
+                            <label for="target-language" class="select-label">目标语言：</label>
+                            <select id="target-language" name="target_language">
+                                <option value="zh" selected>中文</option>
+                                <option value="en">English</option>
+                                <option value="ja">日本語</option>
+                                <option value="ko">한국어</option>
+                                <option value="fr">Français</option>
+                                <option value="es">Español</option>
+                                <option value="de">Deutsch</option>
+                                <option value="ru">Русский</option>
+                                <option value="ar">العربية</option>
+                                <option value="hi">हिन्दी</option>
+                            </select>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <button id="start-button" disabled>开始翻译</button>
-        </div>
 
-        <div id="result-container" style="display: none;">
-            <div id="video-container">
-                <video id="video-player" controls poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a1a'/%3E%3Ctext x='400' y='225' font-family='Arial' font-size='24' fill='%23666' text-anchor='middle' alignment-baseline='middle'%3E视频预览区域%3C/text%3E%3C/svg%3E"></video>
-            </div>
-            <h3 id="result-filename" class="result-title"></h3>
-            <div id="subtitles" class="subtitles-container"></div>
-            <div class="action-buttons button-group">
-                <a href="{{ url_for('new_translation') }}" class="file-label" id="translate-another">翻译另一个视频</a>
-            </div>
-        </div>
+                <div class="voice-cloning-module">
+                    <h3>原声克隆配音</h3>
+                    <label class="dubbing-toggle" for="enable-dubbing">
+                        <input id="enable-dubbing" type="checkbox" name="enable_dubbing">
+                        <span>翻译完成后继续生成配音音轨</span>
+                    </label>
+                    <p id="dubbing-language-note" class="dubbing-language-note">
+                        当前目标语言支持 Qwen3-TTS 配音。
+                    </p>
+                </div>
 
-        <div id="progress-container" style="display: none;">
-            <div class="progress-layout">
-                <div class="spinner"></div>
-                <div class="progress-info">
-                    <p id="status-text">准备上传...</p>
-                    <div class="progress-bar">
-                        <div class="progress-bar-fill" id="progress-bar-fill"></div>
+                <button id="start-button" disabled>开始翻译</button>
+            </div>
+
+            <div id="result-container" style="display: none;">
+                <div id="video-container">
+                    <video id="video-player" controls poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a1a1a'/%3E%3Ctext x='400' y='225' font-family='Arial' font-size='24' fill='%23666' text-anchor='middle' alignment-baseline='middle'%3E视频预览区域%3C/text%3E%3C/svg%3E"></video>
+                </div>
+                <h3 id="result-filename" class="result-title"></h3>
+                <div id="dubbing-result" class="dubbing-result-card" hidden>
+                    <div class="dubbing-result-header">
+                        <h4>配音结果</h4>
+                        <span id="dub-status-badge" class="dub-status-badge">未启用</span>
+                    </div>
+                    <p id="dub-status-message" class="dub-status-message"></p>
+                    <div id="dub-links" class="button-group" hidden>
+                        <a id="dub-download-link" class="file-label" href="#" download>下载成品</a>
+                        <a id="dub-manifest-link" class="file-label secondary-button" href="#" target="_blank" rel="noopener noreferrer">查看 manifest</a>
+                        <a id="dub-log-link" class="file-label secondary-button" href="#" target="_blank" rel="noopener noreferrer">查看日志</a>
                     </div>
                 </div>
-                <span id="progress-percent" class="progress-percent">0%</span>
+                <div id="subtitles" class="subtitles-container"></div>
+                <div class="action-buttons button-group">
+                    <a href="{{ url_for('new_translation') }}" class="file-label" id="translate-another">翻译另一个视频</a>
+                </div>
+            </div>
+
+            <div id="progress-container" style="display: none;">
+                <div class="progress-layout">
+                    <div class="spinner"></div>
+                    <div class="progress-info">
+                        <p id="status-text">准备上传...</p>
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+                        </div>
+                    </div>
+                    <span id="progress-percent" class="progress-percent">0%</span>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div id="history-sidebar" class="sidebar">
-        <div class="sidebar-header">
-            <h2>翻译历史</h2>
-            <span class="sidebar-toggle" id="sidebar-toggle">×</span>
+        <div id="history-sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h2>翻译历史</h2>
+                <span class="sidebar-toggle" id="sidebar-toggle">×</span>
+            </div>
+            <ul id="history-list" class="history-list">
+                {% if history %}
+                    {% for item in history %}
+                        <li>
+                            <a href="#" class="history-item" data-history-id="{{ item.id }}">
+                                <strong>{{ item.original_video_name }}</strong>
+                                <small>{{ item.timestamp.split(' ')[0] }}</small>
+                            </a>
+                        </li>
+                    {% endfor %}
+                {% else %}
+                    <li class="empty-message">暂无历史记录</li>
+                {% endif %}
+            </ul>
         </div>
-        <ul id="history-list" class="history-list">
-            {% if history %}
-                {% for item in history %}
-                    <li>
-                        <a href="#" class="history-item" data-history-id="{{ item.id }}">
-                            <strong>{{ item.original_video_name }}</strong>
-                            <small>{{ item.timestamp.split(' ')[0] }}</small>
-                        </a>
-                    </li>
-                {% endfor %}
-            {% else %}
-                <li class="empty-message">暂无历史记录</li>
-            {% endif %}
-        </ul>
     </div>
-    
-    <script>
-        // Handle voice file upload
-        document.getElementById('voice-file-input').addEventListener('change', function(e) {
-            const fileNameElement = document.getElementById('voice-file-name');
-            if (e.target.files.length > 0) {
-                fileNameElement.textContent = e.target.files[0].name;
-            } else {
-                fileNameElement.textContent = '未选择文件';
-            }
-        });
 
-        // Update start button state based on form inputs
-        function updateStartButtonState() {
-            const fileInput = document.getElementById('file-input');
-            const voiceFileInput = document.getElementById('voice-file-input');
-            const startButton = document.getElementById('start-button');
-            
-            // Enable button if either video file is selected or custom voice file is uploaded
-            const hasVideoFile = fileInput.files.length > 0;
-            const hasVoiceFile = voiceFileInput.files.length > 0;
-            const hasSelectedVoice = document.getElementById('voice-select').value !== '';
-            
-            startButton.disabled = !(hasVideoFile && (hasVoiceFile || hasSelectedVoice));
-        }
-
-        // Add event listeners to update button state
-        document.getElementById('file-input').addEventListener('change', updateStartButtonState);
-        document.getElementById('voice-file-input').addEventListener('change', updateStartButtonState);
-        document.getElementById('voice-select').addEventListener('change', updateStartButtonState);
-
-        // Simulate form submission handling
-        document.getElementById('start-button').addEventListener('click', function(e) {
-            const selectedVoice = document.getElementById('voice-select').value;
-            const voiceFile = document.getElementById('voice-file-input').files[0];
-            
-            if (selectedVoice) {
-                alert(`选择了预设音色: ${selectedVoice}`);
-            } else if (voiceFile) {
-                alert(`上传了自定义音色样本: ${voiceFile.name}`);
-            }
-        });
-        
-        // History sidebar toggle functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const historyBtn = document.getElementById('history-btn');
-            const historySidebar = document.getElementById('history-sidebar');
-            const sidebarToggle = document.querySelector('.sidebar-toggle');
-            
-            // Toggle history sidebar when clicking the history button
-            historyBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                historySidebar.classList.add('show');
-            });
-            
-            // Close sidebar when clicking the close button
-            if (sidebarToggle) {
-                sidebarToggle.addEventListener('click', function() {
-                    historySidebar.classList.remove('show');
-                });
-            }
-            
-            // Close sidebar when clicking outside of it
-            document.addEventListener('click', function(e) {
-                if (!historySidebar.contains(e.target) && 
-                    e.target !== historyBtn &&
-                    !historyBtn.contains(e.target)) {
-                    historySidebar.classList.remove('show');
-                }
-            });
-        });
-    </script>
-</div>
-</div>
-
-<!-- Word Details Modal -->
-<div id="word-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-button">×</span>
-        <h2 id="modal-word"></h2>
-        <p><strong id="modal-pinyin"></strong></p>
-        <p><strong>Meaning:</strong> <span id="modal-meaning"></span></p>
-        <p><strong>Example:</strong></p>
-        <p id="modal-example-cn"></p>
-        <p id="modal-example-en" style="color: #666; font-style: italic;"></p>
-        <p><strong>Note:</strong> <span id="modal-grammar"></span></p>
-        <button id="add-to-vocab-button">Add to Vocabulary</button>
+    <div id="word-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+            <h2 id="modal-word"></h2>
+            <p><strong id="modal-pinyin"></strong></p>
+            <p><strong>Meaning:</strong> <span id="modal-meaning"></span></p>
+            <p><strong>Example:</strong></p>
+            <p id="modal-example-cn"></p>
+            <p id="modal-example-en" style="color: #666; font-style: italic;"></p>
+            <p><strong>Note:</strong> <span id="modal-grammar"></span></p>
+            <button id="add-to-vocab-button">Add to Vocabulary</button>
+        </div>
     </div>
-</div>
 
-<script src="{{ url_for('static', filename='js/test.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/test.js') }}"></script>
 </body>
 </html>

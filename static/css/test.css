@@ -447,6 +447,40 @@ select:focus {
     font-size: 1.4em;
 }
 
+.dubbing-toggle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    color: var(--secondary);
+    cursor: pointer;
+}
+
+.dubbing-toggle input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+}
+
+.dubbing-support-note,
+.dubbing-language-note {
+    margin: 14px 0 0;
+    line-height: 1.6;
+    color: var(--secondary);
+}
+
+.dubbing-language-note.is-unsupported {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.voice-cloning-module code {
+    background: rgba(73, 88, 103, 0.08);
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-family: Consolas, monospace;
+}
+
 .voice-options {
     display: flex;
     flex-wrap: wrap;
@@ -645,6 +679,118 @@ select:focus {
 
 .action-buttons {
     margin-top: 20px;
+}
+
+.dubbing-result-card {
+    background: rgba(255, 255, 255, 0.78);
+    border-radius: 18px;
+    border: 1px solid rgba(158, 42, 43, 0.18);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.dubbing-result-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.dubbing-result-header h4 {
+    margin: 0;
+    color: var(--primary);
+    font-size: 20px;
+}
+
+.dub-status-badge {
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 6px 12px;
+    white-space: nowrap;
+}
+
+.dub-status-badge.is-completed {
+    background: rgba(74, 140, 94, 0.15);
+    color: #2f6f42;
+}
+
+.dub-status-badge.is-failed {
+    background: rgba(158, 42, 43, 0.12);
+    color: var(--primary);
+}
+
+.dub-status-badge.is-unsupported,
+.dub-status-badge.is-disabled {
+    background: rgba(73, 88, 103, 0.12);
+    color: var(--secondary);
+}
+
+.dub-status-message {
+    margin: 0 0 16px;
+    line-height: 1.6;
+}
+
+.dub-track-group + .dub-track-group,
+.dub-track-group + .dub-mix-panel,
+.dub-mix-panel + #dub-links {
+    margin-top: 14px;
+}
+
+.dub-track-label {
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 8px;
+}
+
+#dub-audio-player {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+#dub-dry-audio-player {
+    width: 100%;
+}
+
+.dub-mix-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: rgba(73, 88, 103, 0.08);
+    border: 1px solid rgba(73, 88, 103, 0.14);
+}
+
+.dub-mix-badge {
+    align-self: flex-start;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+}
+
+.dub-mix-badge.is-completed {
+    background: rgba(74, 140, 94, 0.15);
+    color: #2f6f42;
+}
+
+.dub-mix-badge.is-degraded {
+    background: rgba(233, 184, 114, 0.22);
+    color: #8a5a06;
+}
+
+.dub-mix-badge.is-disabled {
+    background: rgba(73, 88, 103, 0.12);
+    color: var(--secondary);
+}
+
+.dub-mix-message {
+    margin: 0;
+    line-height: 1.6;
+    color: var(--secondary);
 }
 
 .top-nav-buttons {

@@ -1,4 +1,4 @@
-# * Settings marked with * are advanced settings that won't appear in the Streamlit page and can only be modified manually in config.py
+﻿# * Settings marked with * are advanced settings that won't appear in the Streamlit page and can only be modified manually in config.py
 # recommend to set in streamlit page
 # -------------------
 # version: "3.0.0"
@@ -11,7 +11,7 @@ display_language: "zh-CN"
 
 # API settings
 api:
-  key: 'sk-fA0M7LFVQpvYplqHtSAItNkHP1MWxxPspGkmabL6Lwf4pffF'
+  key: 'YOUR_API_KEY'
   base_url: 'https://yunwu.ai'
   model: 'gpt-4.1-2025-04-14'
   llm_support_json: false
@@ -35,7 +35,7 @@ whisper:
   # Whisper running mode ["local", "cloud", "elevenlabs"]. Specifies where to run, cloud uses 302.ai API
   runtime: 'cloud'  # 确保设置为'cloud'以使用API
   # 302.ai API key
-  whisperX_302_api_key: 'sk-fA0M7LFVQpvYplqHtSAItNkHP1MWxxPspGkmabL6Lwf4pffF'  # 替换为您的yunwu.ai API密钥
+  whisperX_302_api_key: 'YOUR_API_KEY'
   # ElevenLabs API key (experimental)
   elevenlabs_api_key: 'your_elevenlabs_api_key'
 
@@ -89,17 +89,17 @@ sf_fish_tts:
 
 # OpenAI TTS-1 API configuration, 302.ai API only
 openai_tts:
-  api_key: 'sk-fA0M7LFVQpvYplqHtSAItNkHP1MWxxPspGkmabL6Lwf4pffF'
+  api_key: 'YOUR_API_KEY'
   voice: 'alloy'
 
 # Azure configuration, 302.ai API only
 azure_tts:
-  api_key: 'YOUR_302_API_KEY'
+  api_key: 'YOUR_API_KEY'
   voice: 'zh-CN-YunfengNeural'
 
 # FishTTS configuration, 302.ai API only
 fish_tts:
-  api_key: 'YOUR_302_API_KEY'
+  api_key: 'YOUR_API_KEY'
   character: 'AD学姐'
   character_id_dict:
     'AD学姐': '7f92f8afb8ec43bf81429cc1c9199cb1'
@@ -107,7 +107,7 @@ fish_tts:
 
 # SiliconFlow CosyVoice2 Clone
 sf_cosyvoice2:
-  api_key: 'YOUR_SF_KEY'
+  api_key: 'YOUR_API_KEY'
 
 # Edge TTS configuration
 edge_tts:
@@ -188,6 +188,23 @@ tts_method: custom_tts
 
 # 如果需要，可以添加custom_tts的配置项
 custom_tts:
-  api_key: "sk-1SQztU8NAE9pxpgdI7hsAg4Dr5OLXx4RJHHkxgxTwbpWVd4w"
+  api_key: 'YOUR_API_KEY'
   voice: "alloy"  # 或其他支持的语音
   model: "tts-1"  # 或"tts-1-hd"
+qwen_clone:
+  enabled: true
+  python_exe: ''
+  project_dir: 'subprojects/qwen-comfy-local-clone'
+  config_path: 'subprojects/qwen-comfy-local-clone/config.chineseclick.json'
+  output_root: 'output/dub'
+  use_vocal_stem: true
+  align:
+    mode: 'target_asr'
+    snap_window_ms: 250
+    fade_ms: 25
+    fallback: 'heuristic'
+  mix_background: true
+  background_gain_db: 0
+  keep_dry_track: true
+  mix_fail_policy: 'dry_only'
+

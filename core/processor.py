@@ -24,6 +24,7 @@ console = Console()
 def clear_output_directory():
     """清理 output 目录，为新的处理任务做准备，但保留 history 子目录和数据库文件。"""
     history_dir_name = "history"
+    dubbing_dir_name = "dub"
     db_filename = "main.db"
     if not os.path.exists(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -33,7 +34,7 @@ def clear_output_directory():
     for item in os.listdir(OUTPUT_DIR):
         item_path = os.path.join(OUTPUT_DIR, item)
         # 跳过 history 目录和数据库文件
-        if item == history_dir_name or item == db_filename:
+        if item in {history_dir_name, dubbing_dir_name, db_filename}:
             continue
         try:
             if os.path.isdir(item_path):

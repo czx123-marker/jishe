@@ -1,0 +1,53 @@
+{
+  "subtitle": {
+    "source_language": "Chinese",
+    "target_language": "English",
+    "pre_roll_ms": 0,
+    "post_roll_ms": 0
+  },
+  "reference": {
+    "mode": "global",
+    "min_ms": 2500,
+    "max_ms": 12000,
+    "target_ms": 15000,
+    "clip_count": 4,
+    "join_gap_ms": 120,
+    "ref_audio_max_seconds": 30.0
+  },
+  "asr": {
+    "backend": "faster_whisper",
+    "model_name": "small",
+    "model_path": null,
+    "local_files_only": true,
+    "device": "cuda",
+    "compute_type": "float16",
+    "language": "zh"
+  },
+  "tts": {
+    "model_id": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+    "model_path": "../../_model_cache/Qwen3-TTS-12Hz-1___7B-Base",
+    "comfyui_models_dir": null,
+    "local_files_only": true,
+    "device": "cuda:0",
+    "dtype": "bfloat16",
+    "attn_implementation": "sdpa",
+    "max_new_tokens": null,
+    "do_sample": false,
+    "seed": 1234,
+    "temperature": null,
+    "top_k": null,
+    "top_p": null,
+    "repetition_penalty": null
+  },
+  "alignment": {
+    "mode": "target_asr",
+    "snap_window_ms": 250,
+    "fade_ms": 25,
+    "fallback": "heuristic"
+  },
+  "output": {
+    "lock_timeline": true,
+    "stretch_min_ratio": 0.85,
+    "stretch_max_ratio": 1.35
+  }
+}

@@ -13,5 +13,11 @@ __pycache__/
 output/
 uploads/
 
+# Local config
+config.yaml
+config.json
+!config.example.yaml
+!config.example.json
+
 # Local-only config
 test_config.json

@@ -5,6 +5,7 @@ import shutil
 from flask import Flask, request, render_template, jsonify, send_from_directory, redirect, url_for, session
 from werkzeug.utils import secure_filename
 from core.processor import run_pipeline, get_word_details_from_llm, generate_quiz_questions_from_vocab
+from core.qwen_clone_bridge import build_dubbing_result_for_history, ensure_dubbed_playback_url, run_dubbing_for_current_output
 from core.utils import rprint
 from core.database import init_db, add_word, get_all_words, add_translation_to_history, get_translation_history, get_history_entry, clear_vocabulary
 from backend.auth_system import AuthManager
@@ -39,6 +40,25 @@ clear_vocabulary()
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+def is_truthy(value):
+    return str(value or "").strip().lower() in {"1", "true", "yes", "on"}
+
+
+def resolve_local_media_path(media_url: str | None) -> str | None:
+    normalized = str(media_url or "").strip()
+    if not normalized:
+        return None
+    if normalized.startswith("/uploads/"):
+        relative = normalized.removeprefix("/uploads/").replace("/", os.sep)
+        return os.path.join(app.config['UPLOAD_FOLDER'], relative)
+    if normalized.startswith("/output/"):
+        relative = normalized.removeprefix("/output/").replace("/", os.sep)
+        return os.path.join(app.config['OUTPUT_FOLDER'], relative)
+    if os.path.isabs(normalized):
+        return normalized
+    return None
 
 @app.route('/')
 def index():
@@ -201,6 +221,7 @@ def process_video():
 
         source_lang = request.form.get('source_language', 'auto')
         target_lang = request.form.get('target_language', 'en') # 使用 'en' 作为默认值
+        enable_dubbing = is_truthy(request.form.get('enable_dubbing'))
 
         try:
             final_json_path = run_pipeline(video_path, source_lang=source_lang, target_lang=target_lang)
@@ -215,9 +236,31 @@ def process_video():
 
                 with open(history_subtitle_path, 'r', encoding='utf-8') as f:
                     data = json.load(f)
-                
+
+                dubbing_result = (
+                    run_dubbing_for_current_output(
+                        file_uuid,
+                        target_language=target_lang,
+                        source_language=source_lang,
+                    )
+                    if enable_dubbing
+                    else build_dubbing_result_for_history(history_subtitle_path)
+                )
+                playback_url = (
+                    ensure_dubbed_playback_url(file_uuid, video_path)
+                    if dubbing_result.status == "completed"
+                    else None
+                )
+
                 updated_history = get_translation_history(session_id=session_id)
-                return jsonify({"success": True, "data": data, "video_url": video_url, "history": updated_history})
+                response_payload = {
+                    "success": True,
+                    "data": data,
+                    "video_url": playback_url or video_url,
+                    "history": updated_history,
+                }
+                response_payload.update(dubbing_result.to_dict())
+                return jsonify(response_payload)
             else:
                 return jsonify({"error": "Processing failed, result file not found."}, 500)
 
@@ -242,14 +285,23 @@ def get_history_entry_json(history_id):
     try:
         with open(entry['subtitles_path'], 'r', encoding='utf-8') as f:
             subtitle_data = json.load(f)
-        
-        video_url = entry['video_path']
+        dubbing_result = build_dubbing_result_for_history(entry['subtitles_path'])
+        playback_url = (
+            ensure_dubbed_playback_url(
+                os.path.splitext(os.path.basename(entry['subtitles_path']))[0],
+                resolve_local_media_path(entry['video_path']),
+            )
+            if dubbing_result.status == "completed"
+            else None
+        )
+        video_url = playback_url or entry['video_path']
         
         return jsonify({
             "success": True,
             "video_url": video_url,
             "subtitle_data": subtitle_data,
-            "original_filename": entry['original_video_name']
+            "original_filename": entry['original_video_name'],
+            **dubbing_result.to_dict(),
         })
     except FileNotFoundError:
         return jsonify({"success": False, "error": "Subtitle file not found for this history entry."}, 404)

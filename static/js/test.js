@@ -1,524 +1,593 @@
+const fileInput = document.getElementById('file-input');
+const fileNameSpan = document.getElementById('file-name');
+const startButton = document.getElementById('start-button');
+const progressContainer = document.getElementById('progress-container');
+const progressBarFill = document.getElementById('progress-bar-fill');
+const statusText = document.getElementById('status-text');
+const resultContainer = document.getElementById('result-container');
+const resultFilename = document.getElementById('result-filename');
+const videoPlayer = document.getElementById('video-player');
+const subtitlesContainer = document.getElementById('subtitles');
+const historyList = document.getElementById('history-list');
+const progressPercent = document.getElementById('progress-percent');
+const sourceLanguageSelect = document.getElementById('source-language');
+const targetLanguageSelect = document.getElementById('target-language');
+const enableDubbingCheckbox = document.getElementById('enable-dubbing');
+const dubbingLanguageNote = document.getElementById('dubbing-language-note');
+const dubbingResultCard = document.getElementById('dubbing-result');
+const dubStatusBadge = document.getElementById('dub-status-badge');
+const dubStatusMessage = document.getElementById('dub-status-message');
+const dubLinks = document.getElementById('dub-links');
+const dubDownloadLink = document.getElementById('dub-download-link');
+const dubManifestLink = document.getElementById('dub-manifest-link');
+const dubLogLink = document.getElementById('dub-log-link');
 
-  const fileInput = document.getElementById('file-input');
-    const fileNameSpan = document.getElementById('file-name');
-    const startButton = document.getElementById('start-button');
-    const progressContainer = document.getElementById('progress-container');
-    const progressBarFill = document.getElementById('progress-bar-fill');
-    const statusText = document.getElementById('status-text');
-    const resultContainer = document.getElementById('result-container');
-    const resultFilename = document.getElementById('result-filename');
-    const videoPlayer = document.getElementById('video-player');
-    const subtitlesContainer = document.getElementById('subtitles');
-    const historyList = document.getElementById('history-list');
-    const progressPercent = document.getElementById('progress-percent');
-    const targetLanguageSelect = document.getElementById('target-language');
+const modal = document.getElementById('word-modal');
+const closeButton = document.querySelector('.close-button');
+const modalWord = document.getElementById('modal-word');
+const modalPinyin = document.getElementById('modal-pinyin');
+const modalMeaning = document.getElementById('modal-meaning');
+const modalExampleCn = document.getElementById('modal-example-cn');
+const modalExampleEn = document.getElementById('modal-example-en');
+const modalGrammar = document.getElementById('modal-grammar');
+const addToVocabButton = document.getElementById('add-to-vocab-button');
 
-    // Modal Element Constants
-    const modal = document.getElementById('word-modal');
-    const closeButton = document.querySelector('.close-button');
-    const modalWord = document.getElementById('modal-word');
-    const modalPinyin = document.getElementById('modal-pinyin');
-    const modalMeaning = document.getElementById('modal-meaning');
-    const modalExampleCn = document.getElementById('modal-example-cn');
-    const modalExampleEn = document.getElementById('modal-example-en');
-    const modalGrammar = document.getElementById('modal-grammar');
-    const addToVocabButton = document.getElementById('add-to-vocab-button');
+const SUPPORTED_DUBBING_LANGUAGES = new Set(['zh', 'en', 'ja', 'ko', 'de', 'fr', 'ru', 'pt', 'es', 'it']);
+const DUBBING_STATUS_META = {
+    completed: {
+        badge: '配音完成',
+        className: 'is-completed',
+        message: '已生成原声克隆配音音轨。',
+    },
+    failed: {
+        badge: '配音失败',
+        className: 'is-failed',
+        message: '配音没有完成，请查看日志。',
+    },
+    unsupported: {
+        badge: '暂不支持',
+        className: 'is-unsupported',
+        message: '当前目标语言不支持 Qwen3-TTS 配音。',
+    },
+    disabled: {
+        badge: '未启用',
+        className: 'is-disabled',
+        message: '本次仅生成字幕，未触发配音。',
+    },
+};
 
-    // Global State
-    let lastActiveLineIndex = -1;
-    let currentSubtitleLanguage = targetLanguageSelect ? targetLanguageSelect.value : 'zh';
-    let progressInterval = null;
-    let currentProgress = 0;
+let lastActiveLineIndex = -1;
+let currentSubtitleLanguage = targetLanguageSelect ? targetLanguageSelect.value : 'zh';
+let progressInterval = null;
+let currentProgress = 0;
 
-    function stopProgressInterval() {
-        if (progressInterval) {
-            clearInterval(progressInterval);
-            progressInterval = null;
-        }
+function stopProgressInterval() {
+    if (progressInterval) {
+        clearInterval(progressInterval);
+        progressInterval = null;
     }
+}
 
-    function setProgress(value) {
-        currentProgress = Math.max(0, Math.min(100, Math.round(value)));
-        if (progressBarFill) {
-            progressBarFill.style.width = `${currentProgress}%`;
-        }
-        if (progressPercent) {
-            progressPercent.textContent = `${currentProgress}%`;
-        }
+function setProgress(value) {
+    currentProgress = Math.max(0, Math.min(100, Math.round(value)));
+    if (progressBarFill) {
+        progressBarFill.style.width = `${currentProgress}%`;
     }
+    if (progressPercent) {
+        progressPercent.textContent = `${currentProgress}%`;
+    }
+}
 
-    function showProgress(message, value = null) {
+function showProgress(message, value = null) {
+    if (progressContainer) {
+        progressContainer.style.display = 'block';
+    }
+    if (statusText) {
+        statusText.textContent = message;
+    }
+    if (value !== null) {
+        setProgress(value);
+    }
+}
+
+function resetProgress(message = '准备上传...') {
+    stopProgressInterval();
+    setProgress(0);
+    showProgress(message, 0);
+}
+
+function startProcessingProgress(message) {
+    if (message && statusText) {
+        statusText.textContent = message;
+    }
+    if (currentProgress < 85) {
+        setProgress(85);
+    }
+    stopProgressInterval();
+    progressInterval = setInterval(() => {
+        if (currentProgress >= 95) {
+            stopProgressInterval();
+            return;
+        }
+        setProgress(currentProgress + 1);
+    }, 700);
+}
+
+function finishProgress(message) {
+    stopProgressInterval();
+    setProgress(100);
+    if (message && statusText) {
+        statusText.textContent = message;
+    }
+    setTimeout(() => {
         if (progressContainer) {
-            progressContainer.style.display = 'block';
+            progressContainer.style.display = 'none';
         }
-        if (statusText) {
-            statusText.textContent = message;
+    }, 600);
+}
+
+function handleProgressError(message) {
+    stopProgressInterval();
+    showProgress(message || '处理失败', 0);
+    setTimeout(() => {
+        if (progressContainer) {
+            progressContainer.style.display = 'none';
         }
-        if (value !== null) {
-            setProgress(value);
-        }
+    }, 1500);
+}
+
+function updateStartButtonState() {
+    const hasFile = !!(fileInput && fileInput.files && fileInput.files.length > 0);
+    startButton.disabled = !hasFile;
+}
+
+function updateDubbingAvailability() {
+    if (!targetLanguageSelect || !enableDubbingCheckbox || !dubbingLanguageNote) {
+        return;
     }
 
-    function resetProgress(message = '准备上传...') {
-        stopProgressInterval();
-        setProgress(0);
-        showProgress(message, 0);
-    }
+    const targetLanguage = targetLanguageSelect.value;
+    const supported = SUPPORTED_DUBBING_LANGUAGES.has(targetLanguage);
 
-    function startProcessingProgress(message) {
-        if (message) {
-            statusText.textContent = message;
+    if (supported) {
+        enableDubbingCheckbox.disabled = false;
+        dubbingLanguageNote.textContent = '当前目标语言支持 Qwen3-TTS 配音。';
+        dubbingLanguageNote.classList.remove('is-unsupported');
+    } else {
+        enableDubbingCheckbox.checked = false;
+        enableDubbingCheckbox.disabled = true;
+        dubbingLanguageNote.textContent = '当前目标语言仅生成字幕，不触发配音。';
+        dubbingLanguageNote.classList.add('is-unsupported');
+    }
+}
+
+function uploadFile(file) {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('source_language', sourceLanguageSelect.value);
+    formData.append('target_language', targetLanguageSelect.value);
+    formData.append('enable_dubbing', enableDubbingCheckbox.checked ? '1' : '0');
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '/process-video', true);
+
+    xhr.onloadstart = function () {
+        resetProgress('准备上传...');
+    };
+
+    xhr.upload.onprogress = function (event) {
+        if (!event.lengthComputable) {
+            return;
         }
-        if (currentProgress < 85) {
-            setProgress(85);
-        }
-        stopProgressInterval();
-        progressInterval = setInterval(() => {
-            if (currentProgress >= 95) {
-                stopProgressInterval();
-            } else {
-                setProgress(currentProgress + 1);
+        const percent = Math.round((event.loaded / event.total) * 80);
+        showProgress('上传中...', percent);
+    };
+
+    xhr.upload.onload = function () {
+        startProcessingProgress(enableDubbingCheckbox.checked ? '上传完成，正在翻译并准备配音...' : '上传完成，正在翻译...');
+    };
+
+    xhr.onload = function () {
+        startButton.disabled = false;
+        if (xhr.status !== 200) {
+            handleProgressError('处理过程中发生错误。');
+            try {
+                const errorPayload = JSON.parse(xhr.responseText);
+                alert(`Error: ${errorPayload.error}`);
+            } catch (error) {
+                alert('An unknown error occurred.');
             }
-        }, 700);
-    }
-
-    function finishProgress(message) {
-        stopProgressInterval();
-        setProgress(100);
-        if (message) {
-            statusText.textContent = message;
+            return;
         }
-        setTimeout(() => {
-            if (progressContainer) {
-                progressContainer.style.display = 'none';
-            }
-        }, 600);
-    }
 
-    function handleProgressError(message) {
-        stopProgressInterval();
-        showProgress(message || '发生错误', 0);
-        setTimeout(() => {
-            if (progressContainer) {
-                progressContainer.style.display = 'none';
-            }
-        }, 1500);
-    }
-
-    // --- Event Listeners ---
-
-    fileInput.addEventListener('change', () => {
-        const file = fileInput.files[0];
-        if (file) {
-            fileNameSpan.textContent = file.name;
-            startButton.disabled = false;
-        } else {
-            fileNameSpan.textContent = 'No file chosen';
-            startButton.disabled = true;
+        const response = JSON.parse(xhr.responseText);
+        if (!response.success) {
+            handleProgressError('处理失败，请重试。');
+            alert(`Error: ${response.error}`);
+            return;
         }
-    });
 
-    startButton.addEventListener('click', () => {
-        const file = fileInput.files[0];
-        if (file) {
-            if (targetLanguageSelect) {
-                currentSubtitleLanguage = targetLanguageSelect.value;
+        finishProgress(response.dub_status === 'completed' ? '翻译和配音已完成。' : '翻译完成。');
+        document.getElementById('upload-form').style.display = 'none';
+        resultFilename.textContent = file.name;
+        videoPlayer.src = response.video_url;
+        renderSubtitles(response.data.segments || []);
+        renderDubbingResult(response);
+        resultContainer.style.display = 'block';
+        videoPlayer.load();
+        renderHistory(response.history);
+    };
+
+    xhr.onerror = function () {
+        startButton.disabled = false;
+        handleProgressError('上传过程中出现问题，请检查网络连接。');
+        alert('An error occurred during the upload. Please check your network connection.');
+    };
+
+    xhr.send(formData);
+}
+
+function loadHistoryItem(historyId) {
+    resetProgress('正在加载历史记录...');
+    startProcessingProgress('正在加载历史记录...');
+    resultContainer.style.display = 'none';
+
+    fetch(`/get-history-entry/${historyId}`)
+        .then((response) => response.json())
+        .then((data) => {
+            if (!data.success) {
+                handleProgressError('加载历史记录失败。');
+                alert(`Error loading history: ${data.error}`);
+                return;
             }
-            uploadFile(file);
-            startButton.disabled = true;
-        }
-    });
 
-    if (targetLanguageSelect) {
-        targetLanguageSelect.addEventListener('change', (event) => {
-            currentSubtitleLanguage = event.target.value;
+            finishProgress('历史记录加载完成');
+            document.getElementById('upload-form').style.display = 'none';
+            resultFilename.textContent = data.original_filename;
+            videoPlayer.src = data.video_url;
+            renderSubtitles(data.subtitle_data.segments || []);
+            renderDubbingResult(data);
+            resultContainer.style.display = 'block';
+            videoPlayer.load();
+        })
+        .catch((error) => {
+            handleProgressError('获取历史记录时出现错误。');
+            console.error('Error fetching history item:', error);
+            alert('An error occurred while fetching the history item.');
         });
-    }
+}
 
-    addToVocabButton.addEventListener('click', () => {
-        if (modalWord.textContent) addWordToVocab();
-    });
+function renderSubtitles(segments) {
+    subtitlesContainer.innerHTML = '';
+    lastActiveLineIndex = -1;
+    subtitlesContainer.scrollTop = 0;
+    currentSubtitleLanguage = inferSubtitleLanguageFromSegments(segments, currentSubtitleLanguage);
 
-    videoPlayer.addEventListener('timeupdate', highlightCurrentSubtitle);
-    
-    closeButton.onclick = () => { modal.style.display = 'none'; };
-    window.onclick = (event) => { if (event.target == modal) modal.style.display = 'none'; };
+    (segments || []).forEach((segment, index) => {
+        const line = document.createElement('p');
+        line.classList.add('subtitle-line');
+        line.dataset.start = segment.start;
+        line.dataset.end = segment.end;
+        line.dataset.index = index;
 
-    // Initialize history item listeners on page load
-    document.addEventListener('DOMContentLoaded', () => {
-        renderHistoryEventListeners();
-        initHistorySidebar();
-    });
-
-    // --- Core Functions ---
-
-    function uploadFile(file) {
-        const formData = new FormData();
-        formData.append('file', file);
-        formData.append('source_language', document.getElementById('source-language').value);
-        formData.append('target_language', document.getElementById('target-language').value);
-
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', '/process-video', true);
-
-        xhr.onloadstart = function() {
-            resetProgress('准备上传...');
-        };
-
-        xhr.upload.onprogress = function(event) {
-            if (event.lengthComputable) {
-                const percent = Math.round((event.loaded / event.total) * 80);
-                showProgress('上传中...', percent);
-            }
-        };
-
-        xhr.upload.onload = function() {
-            startProcessingProgress('上传完成，正在翻译...');
-        };
-
-        xhr.onload = function() {
-            startButton.disabled = false;
-            if (xhr.status === 200) {
-                const response = JSON.parse(xhr.responseText);
-                if (response.success) {
-                    finishProgress('翻译完成！');
-                    document.getElementById('upload-form').style.display = 'none'; // Hide the upload form
-
-                    // Display results
-                    resultFilename.textContent = file.name;
-                    videoPlayer.src = response.video_url;
-                    renderSubtitles(response.data.segments || []);
-                    resultContainer.style.display = 'block';
-                    videoPlayer.load(); // Important to load the new source
-                    
-                    // Update history sidebar
-                    renderHistory(response.history);
-                } else {
-                    handleProgressError('处理失败，请重试。');
-                    alert('Error: ' + response.error);
-                }
-            } else {
-                handleProgressError('处理过程中发生错误。');
-                try {
-                    alert('Error: ' + JSON.parse(xhr.responseText).error);
-                } catch (e) {
-                    alert('An unknown error occurred.');
-                }
-            }
-        };
-
-        xhr.onerror = function() {
-            startButton.disabled = false;
-            handleProgressError('上传过程中出现问题，请检查网络连接。');
-            alert('An error occurred during the upload. Please check your network connection.');
-        };
-
-        xhr.send(formData);
-    }
-
-    function loadHistoryItem(historyId) {
-        resetProgress('正在加载历史记录...');
-        startProcessingProgress('正在加载历史记录...');
-        resultContainer.style.display = 'none';
-
-        fetch(`/get-history-entry/${historyId}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    finishProgress('历史记录加载完成');
-                    document.getElementById('upload-form').style.display = 'none'; // Hide the upload form
-                    resultFilename.textContent = data.original_filename;
-                    videoPlayer.src = data.video_url;
-                    renderSubtitles(data.subtitle_data.segments || []);
-                    resultContainer.style.display = 'block';
-                    videoPlayer.load(); // Important to load the new source
-                } else {
-                    handleProgressError('加载历史记录失败。');
-                    alert('Error loading history: ' + data.error);
-                }
-            })
-            .catch(error => {
-                handleProgressError('获取历史记录时出现错误。');
-                console.error('Error fetching history item:', error);
-                alert('An error occurred while fetching the history item.');
-            });
-    }
-
-    // --- Rendering and UI Functions ---
-
-    function renderSubtitles(segments) {
-        subtitlesContainer.innerHTML = '';
-        lastActiveLineIndex = -1;
-        subtitlesContainer.scrollTop = 0;
-        currentSubtitleLanguage = inferSubtitleLanguageFromSegments(segments, currentSubtitleLanguage);
-        (segments || []).forEach((segment, index) => {
-            const line = document.createElement('p');
-            line.classList.add('subtitle-line');
-            line.dataset.start = segment.start;
-            line.dataset.end = segment.end;
-            line.dataset.index = index;
-
-            if (segment.words && segment.words.length > 0) {
-                segment.words.forEach(wordInfo => {
-                    const wordSpan = document.createElement('span');
-                    wordSpan.classList.add('clickable-word');
-                    wordSpan.textContent = wordInfo.word + ' ';
-                    wordSpan.dataset.word = wordInfo.word;
-                    wordSpan.addEventListener('click', () => {
-                        showWordDetails(wordInfo.word);
-                    });
-                    line.appendChild(wordSpan);
+        if (segment.words && segment.words.length > 0) {
+            segment.words.forEach((wordInfo) => {
+                const wordSpan = document.createElement('span');
+                wordSpan.classList.add('clickable-word');
+                wordSpan.textContent = `${wordInfo.word} `;
+                wordSpan.dataset.word = wordInfo.word;
+                wordSpan.addEventListener('click', () => {
+                    showWordDetails(wordInfo.word);
                 });
-            } else {
-                line.textContent = segment.text;
-            }
-            subtitlesContainer.appendChild(line);
-        });
+                line.appendChild(wordSpan);
+            });
+        } else {
+            line.textContent = segment.text;
+        }
+
+        subtitlesContainer.appendChild(line);
+    });
+}
+
+function renderDubbingResult(payload) {
+    if (!dubbingResultCard) {
+        return;
     }
 
-    function highlightCurrentSubtitle() {
-        const currentTime = videoPlayer.currentTime;
-        const lines = subtitlesContainer.querySelectorAll('.subtitle-line');
-        let activeLine = null;
-        let currentActiveIndex = -1;
+    const status = payload.dub_status || 'disabled';
+    const meta = DUBBING_STATUS_META[status] || DUBBING_STATUS_META.disabled;
+    const statusMessage = payload.dub_error
+        || (payload.dub_mix_status === 'dry_only' && (payload.dub_mix_error || '配音已生成，但背景回混失败，成品已回退为干声。'))
+        || meta.message;
 
-        // 先移除所有激活状态
-        lines.forEach(line => {
-            line.classList.remove('active');
-        });
+    dubbingResultCard.hidden = false;
+    dubStatusBadge.textContent = meta.badge;
+    dubStatusBadge.className = `dub-status-badge ${meta.className}`;
+    dubStatusMessage.textContent = statusMessage;
 
-        // 查找当前时间对应的字幕行或最接近的字幕行
-        for (let i = 0; i < lines.length; i++) {
+    const hasDownloadLink = setLinkState(
+        dubDownloadLink,
+        status === 'completed' ? payload.video_url : null,
+    );
+    const hasManifestLink = setLinkState(dubManifestLink, payload.dub_manifest_url);
+    const hasLogLink = setLinkState(dubLogLink, payload.dub_log_url);
+    const hasAnyLink = hasDownloadLink || hasManifestLink || hasLogLink;
+
+    dubLinks.hidden = !hasAnyLink;
+}
+
+function setLinkState(anchor, href) {
+    if (!anchor) {
+        return false;
+    }
+    if (href) {
+        anchor.href = href;
+        anchor.hidden = false;
+        return true;
+    }
+    anchor.hidden = true;
+    anchor.removeAttribute('href');
+    return false;
+}
+
+function highlightCurrentSubtitle() {
+    const currentTime = videoPlayer.currentTime;
+    const lines = subtitlesContainer.querySelectorAll('.subtitle-line');
+    let activeLine = null;
+    let currentActiveIndex = -1;
+
+    lines.forEach((line) => {
+        line.classList.remove('active');
+    });
+
+    for (let i = 0; i < lines.length; i += 1) {
+        const line = lines[i];
+        const start = parseFloat(line.dataset.start);
+        const end = parseFloat(line.dataset.end);
+        const index = parseInt(line.dataset.index, 10);
+
+        if (currentTime >= start && currentTime <= end) {
+            line.classList.add('active');
+            activeLine = line;
+            currentActiveIndex = index;
+            break;
+        }
+    }
+
+    if (!activeLine && lines.length > 0) {
+        let closestLine = null;
+        let closestIndex = -1;
+        let minTimeDiff = Infinity;
+
+        for (let i = 0; i < lines.length; i += 1) {
             const line = lines[i];
             const start = parseFloat(line.dataset.start);
             const end = parseFloat(line.dataset.end);
             const index = parseInt(line.dataset.index, 10);
 
-            // 精确匹配当前时间范围
-            if (currentTime >= start && currentTime <= end) {
-                line.classList.add('active');
-                activeLine = line;
-                currentActiveIndex = index;
-                break; // 找到第一个匹配的就退出循环，避免多行高亮
+            let timeDiff = 0;
+            if (currentTime < start) {
+                timeDiff = start - currentTime;
+            } else if (currentTime > end) {
+                timeDiff = currentTime - end;
+            }
+
+            if (timeDiff < minTimeDiff) {
+                minTimeDiff = timeDiff;
+                closestLine = line;
+                closestIndex = index;
             }
         }
 
-        // 如果没有精确匹配，尝试找到最近的字幕行
-        if (!activeLine && lines.length > 0) {
-            // 寻找最接近当前时间的字幕行
-            let closestLine = null;
-            let closestIndex = -1;
-            let minTimeDiff = Infinity;
-
-            for (let i = 0; i < lines.length; i++) {
-                const line = lines[i];
-                const start = parseFloat(line.dataset.start);
-                const end = parseFloat(line.dataset.end);
-                const index = parseInt(line.dataset.index, 10);
-
-                // 计算与当前片段的时间差
-                let timeDiff;
-                if (currentTime < start) {
-                    timeDiff = start - currentTime; // 当前时间早于片段开始
-                } else if (currentTime > end) {
-                    timeDiff = currentTime - end; // 当前时间晚于片段结束
-                } else {
-                    timeDiff = 0; // 在片段时间内
-                }
-
-                if (timeDiff < minTimeDiff) {
-                    minTimeDiff = timeDiff;
-                    closestLine = line;
-                    closestIndex = index;
-                }
-            }
-
-            // 如果时间差在合理范围内（比如2秒内），则高亮最近的字幕行
-            if (minTimeDiff <= 2) {
-                closestLine.classList.add('active');
-                activeLine = closestLine;
-                currentActiveIndex = closestIndex;
-            }
-        }
-
-        if (activeLine && currentActiveIndex !== lastActiveLineIndex) {
-            // 确保滚动到视图中
-            activeLine.scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'center' // 改为中心对齐，更便于观看
-            });
-            lastActiveLineIndex = currentActiveIndex;
+        if (minTimeDiff <= 2) {
+            closestLine.classList.add('active');
+            activeLine = closestLine;
+            currentActiveIndex = closestIndex;
         }
     }
 
-    function renderHistory(historyData) {
-        historyList.innerHTML = ''; // Clear existing list
-        if (historyData && historyData.length > 0) {
-            historyData.forEach(item => {
-                const li = document.createElement('li');
-                const a = document.createElement('a');
-                a.href = '#';
-                a.className = 'history-item';
-                a.dataset.historyId = item.id;
-                a.innerHTML = `<strong>${item.original_video_name}</strong><small>${item.timestamp.split(' ')[0]}</small>`;
-                li.appendChild(a);
-                historyList.appendChild(li);
-            });
-        } else {
-            historyList.innerHTML = '<li class="empty-message">No history yet.</li>';
-        }
-        // Re-attach event listeners to the new history items
-        renderHistoryEventListeners();
+    if (activeLine && currentActiveIndex !== lastActiveLineIndex) {
+        activeLine.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        lastActiveLineIndex = currentActiveIndex;
     }
+}
 
-    function renderHistoryEventListeners() {
-        const historyItems = document.querySelectorAll('.history-item');
-        historyItems.forEach(item => {
-            item.addEventListener('click', (e) => {
-                e.preventDefault();
-                const historyId = item.dataset.historyId;
-                loadHistoryItem(historyId);
-            });
+function renderHistory(historyData) {
+    historyList.innerHTML = '';
+    if (historyData && historyData.length > 0) {
+        historyData.forEach((item) => {
+            const li = document.createElement('li');
+            const anchor = document.createElement('a');
+            anchor.href = '#';
+            anchor.className = 'history-item';
+            anchor.dataset.historyId = item.id;
+            anchor.innerHTML = `<strong>${item.original_video_name}</strong><small>${item.timestamp.split(' ')[0]}</small>`;
+            li.appendChild(anchor);
+            historyList.appendChild(li);
         });
+    } else {
+        historyList.innerHTML = '<li class="empty-message">No history yet.</li>';
     }
+    renderHistoryEventListeners();
+}
 
-    // --- Word Details and Vocabulary Functions ---
+function renderHistoryEventListeners() {
+    const historyItems = document.querySelectorAll('.history-item');
+    historyItems.forEach((item) => {
+        item.addEventListener('click', (event) => {
+            event.preventDefault();
+            loadHistoryItem(item.dataset.historyId);
+        });
+    });
+}
 
-    function showWordDetails(word) {
-        addToVocabButton.disabled = false;
-        addToVocabButton.textContent = 'Add to Vocabulary';
-        modalWord.textContent = word;
-        modalPinyin.textContent = 'Loading...';
-        modalMeaning.textContent = '...';
-        modalExampleCn.textContent = '...';
-        modalExampleEn.textContent = '...';
-        modalGrammar.textContent = '...';
-        modal.style.display = 'block';
+function showWordDetails(word) {
+    addToVocabButton.disabled = false;
+    addToVocabButton.textContent = 'Add to Vocabulary';
+    modalWord.textContent = word;
+    modalPinyin.textContent = 'Loading...';
+    modalMeaning.textContent = '...';
+    modalExampleCn.textContent = '...';
+    modalExampleEn.textContent = '...';
+    modalGrammar.textContent = '...';
+    modal.style.display = 'block';
 
-        fetch('/get-word-details', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                word: word,
-                subtitle_language: currentSubtitleLanguage
-            }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                const details = data.details;
-                if (currentSubtitleLanguage.startsWith('en')) {
-                    modalPinyin.textContent = details.pinyin || '';
-                } else {
-                    modalPinyin.textContent = details.pinyin;
-                }
-                modalMeaning.textContent = details.meaning;
-                modalExampleCn.textContent = details.example_sentence_cn;
-                modalExampleEn.textContent = details.example_sentence_en;
-                modalGrammar.textContent = details.grammar_note;
-            } else {
+    fetch('/get-word-details', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            word,
+            subtitle_language: currentSubtitleLanguage,
+        }),
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            if (!data.success) {
                 modalMeaning.textContent = `Error: ${data.error}`;
+                return;
             }
+
+            const details = data.details;
+            modalPinyin.textContent = details.pinyin || '';
+            modalMeaning.textContent = details.meaning || '';
+            modalExampleCn.textContent = details.example_sentence_cn || '';
+            modalExampleEn.textContent = details.example_sentence_en || '';
+            modalGrammar.textContent = details.grammar_note || '';
         })
-        .catch(error => {
+        .catch((error) => {
             console.error('Error fetching word details:', error);
             modalMeaning.textContent = 'Failed to load details. Please try again.';
         });
-    }
+}
 
-    function addWordToVocab() {
-        addToVocabButton.disabled = true;
-        addToVocabButton.textContent = 'Adding...';
+function addWordToVocab() {
+    addToVocabButton.disabled = true;
+    addToVocabButton.textContent = 'Adding...';
 
-        const payload = {
-            word: modalWord.textContent,
-            pinyin: modalPinyin.textContent,
-            definition: modalMeaning.textContent,
-            example: (modalExampleCn.textContent + '\n' + modalExampleEn.textContent).trim()
-        };
+    const payload = {
+        word: modalWord.textContent,
+        pinyin: modalPinyin.textContent,
+        definition: modalMeaning.textContent,
+        example: `${modalExampleCn.textContent}\n${modalExampleEn.textContent}`.trim(),
+    };
 
-        fetch('/add-word', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload),
-        })
-        .then(response => response.json())
-        .then(data => {
+    fetch('/add-word', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+    })
+        .then((response) => response.json())
+        .then((data) => {
             if (data.success) {
                 addToVocabButton.textContent = 'Added!';
-            } else {
-                alert(data.error || 'Failed to add word.');
-                addToVocabButton.textContent = 'Add to Vocabulary';
-                addToVocabButton.disabled = false;
+                return;
             }
+
+            alert(data.error || 'Failed to add word.');
+            addToVocabButton.textContent = 'Add to Vocabulary';
+            addToVocabButton.disabled = false;
         })
-        .catch(error => {
+        .catch((error) => {
             console.error('Error adding word:', error);
             alert('An error occurred while adding the word.');
             addToVocabButton.textContent = 'Add to Vocabulary';
             addToVocabButton.disabled = false;
         });
-    }
+}
 
-    function inferSubtitleLanguageFromSegments(segments, fallback) {
-        if (!segments || !segments.length) {
-            return fallback || 'zh';
-        }
-
-        const candidate = segments.find(seg => seg && seg.text && seg.text.trim().length) || segments[0];
-        const sampleText = (candidate && candidate.text) || '';
-        const chineseChars = (sampleText.match(/[\u4e00-\u9fff]/g) || []).length;
-        const latinChars = (sampleText.match(/[A-Za-z]/g) || []).length;
-
-        if (latinChars > chineseChars && latinChars > 0) {
-            return 'en';
-        }
-        if (chineseChars > 0) {
-            return 'zh';
-        }
+function inferSubtitleLanguageFromSegments(segments, fallback) {
+    if (!segments || !segments.length) {
         return fallback || 'zh';
     }
 
+    const candidate = segments.find((segment) => segment && segment.text && segment.text.trim().length) || segments[0];
+    const sampleText = (candidate && candidate.text) || '';
+    const chineseChars = (sampleText.match(/[\u4e00-\u9fff]/g) || []).length;
+    const latinChars = (sampleText.match(/[A-Za-z]/g) || []).length;
 
-// 历史记录侧边栏控制功能
+    if (latinChars > chineseChars && latinChars > 0) {
+        return 'en';
+    }
+    if (chineseChars > 0) {
+        return 'zh';
+    }
+    return fallback || 'zh';
+}
+
 function initHistorySidebar() {
-    // 创建遮罩层
     const overlay = document.createElement('div');
     overlay.className = 'sidebar-overlay';
     document.body.appendChild(overlay);
-    
-    // 获取相关元素
+
     const historyBtn = document.getElementById('history-btn');
     const sidebar = document.getElementById('history-sidebar');
     const sidebarToggle = document.getElementById('sidebar-toggle');
-    const showHistoryBtn = document.getElementById('show-history');
-    
-    // 显示侧边栏函数
-    function showSidebar() {
+
+    function showSidebar(event) {
+        if (event) {
+            event.preventDefault();
+        }
         sidebar.classList.add('show');
         overlay.classList.add('show');
     }
-    
-    // 隐藏侧边栏函数
+
     function hideSidebar() {
         sidebar.classList.remove('show');
         overlay.classList.remove('show');
     }
-    
-    // 添加点击事件监听（添加null检查）
+
     if (historyBtn) {
         historyBtn.addEventListener('click', showSidebar);
     }
-    
     if (sidebarToggle) {
         sidebarToggle.addEventListener('click', hideSidebar);
     }
-    
-    if (showHistoryBtn) {
-        showHistoryBtn.addEventListener('click', hideSidebar);
-    }
-    
-    if (overlay) {
-        overlay.addEventListener('click', hideSidebar);
-    }
+    overlay.addEventListener('click', hideSidebar);
 }
+
+fileInput.addEventListener('change', () => {
+    const file = fileInput.files[0];
+    fileNameSpan.textContent = file ? file.name : '未选择文件';
+    updateStartButtonState();
+});
+
+startButton.addEventListener('click', () => {
+    const file = fileInput.files[0];
+    if (!file) {
+        return;
+    }
+    currentSubtitleLanguage = targetLanguageSelect ? targetLanguageSelect.value : currentSubtitleLanguage;
+    uploadFile(file);
+    startButton.disabled = true;
+});
+
+if (targetLanguageSelect) {
+    targetLanguageSelect.addEventListener('change', (event) => {
+        currentSubtitleLanguage = event.target.value;
+        updateDubbingAvailability();
+    });
+}
+
+addToVocabButton.addEventListener('click', () => {
+    if (modalWord.textContent) {
+        addWordToVocab();
+    }
+});
+
+videoPlayer.addEventListener('timeupdate', highlightCurrentSubtitle);
+closeButton.onclick = () => {
+    modal.style.display = 'none';
+};
+
+window.onclick = (event) => {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    renderHistoryEventListeners();
+    updateDubbingAvailability();
+    updateStartButtonState();
+    initHistorySidebar();
+});

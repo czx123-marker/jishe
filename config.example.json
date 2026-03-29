@@ -1,0 +1,14 @@
+﻿{
+    "llm":  {
+                "api_key":  "YOUR_API_KEY",
+                "base_url":  "https://yunwu.ai/v1",
+                "model":  "claude-3-5-sonnet-20240620"
+            },
+    "whisper":  {
+                    "runtime":  "cloud",
+                    "whisperX_302_api_key":  "YOUR_API_KEY",
+                    "language":  "auto",
+                    "auto_detect_language":  true
+                },
+    "target_language":  "English"
+}
